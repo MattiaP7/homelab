@@ -60,6 +60,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -914,10 +916,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#perche-ubuntu-server-e-non-altre-distribuzioni-linux" class="md-nav__link">
+  <a href="#la-mia-scelte-sullos" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Perché Ubuntu Server (e non altre distribuzioni Linux)
+        La mia scelte sull'OS
       </span>
     </span>
   </a>
@@ -1920,10 +1922,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#perche-ubuntu-server-e-non-altre-distribuzioni-linux" class="md-nav__link">
+  <a href="#la-mia-scelte-sullos" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Perché Ubuntu Server (e non altre distribuzioni Linux)
+        La mia scelte sull'OS
       </span>
     </span>
   </a>
@@ -2051,18 +2053,12 @@
 <h1 id="scegliere-il-sistema-operativo">Scegliere il Sistema Operativo<a class="headerlink" href="#scegliere-il-sistema-operativo" title="Permanent link">&para;</a></h1>
 <h2 id="perche-non-windows">Perché non Windows<a class="headerlink" href="#perche-non-windows" title="Permanent link">&para;</a></h2>
 <p>Windows può tecnicamente far girare Docker (tramite WSL2), ma non è pensato per un uso da server 24/7: consuma più risorse a riposo, richiede più manutenzione (aggiornamenti che a volte forzano riavvii), e la community di homelab/self-hosting documenta quasi tutto pensando a Linux. Se stai costruendo un server dedicato, parti da Linux.</p>
-<h2 id="perche-ubuntu-server-e-non-altre-distribuzioni-linux">Perché Ubuntu Server (e non altre distribuzioni Linux)<a class="headerlink" href="#perche-ubuntu-server-e-non-altre-distribuzioni-linux" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
-    A[Quale distribuzione Linux?] --&gt; B{Priorità?}
-    B --&gt;|Documentazione\ne community enormi| C[Ubuntu Server LTS]
-    B --&gt;|Massimo controllo,\ncurva di apprendimento ripida| D[Debian / Arch]
-    B --&gt;|Interfaccia grafica\nda subito, meno flessibile| E[Distribuzioni NAS-oriented\nes. TrueNAS]</code></pre>
+<h2 id="la-mia-scelte-sullos">La mia scelte sull'OS<a class="headerlink" href="#la-mia-scelte-sullos" title="Permanent link">&para;</a></h2>
 <p>Per questa guida usiamo <strong><a href="https://ubuntu.com/download/server">Ubuntu Server LTS</a></strong> per motivi pratici, non ideologici:</p>
 <ul>
 <li><strong>Community enorme</strong>: qualsiasi problema tu incontri, è quasi certamente già stato documentato da qualcun altro</li>
 <li><strong>LTS Long Term Support</strong>: supporto di sicurezza per 5 anni, non serve reinstallare/aggiornare la versione spesso</li>
 <li><strong>Nessuna interfaccia grafica</strong>: un server non ne ha bisogno, risparmi RAM e superficie di attacco</li>
-<li><strong>Compatibilità totale con Docker</strong>: nessuna frizione nell'installazione</li>
 </ul>
 <h2 id="cosa-significa-server-vs-desktop">Cosa significa "Server" vs "Desktop"<a class="headerlink" href="#cosa-significa-server-vs-desktop" title="Permanent link">&para;</a></h2>
 <p>Quando scarichi Ubuntu, esistono due varianti:</p>
@@ -2220,6 +2216,8 @@
     
     
       <script src="../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

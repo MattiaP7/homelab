@@ -17,34 +17,41 @@ flowchart TD
 
 **Consiglio per chi inizia**: usa la **DHCP Reservation** dal router. È più semplice, si configura da un'interfaccia grafica, e se in futuro cambi scheda di rete o reinstalli il sistema operativo, l'IP resta comunque fisso (perché la regola vive nel router, non nel server).
 
-## Metodo consigliato — DHCP Reservation dal router
+## DHCP Reservation dal router
 
-1. Trova l'indirizzo MAC della scheda di rete del server:
+Trova l'indirizzo MAC della scheda di rete del server:
 
-   ```bash
-   ip a
-   ```
+```bash
+ip link
+```
 
-   Cerca la riga `link/ether` sotto la tua interfaccia di rete principale (es. `eth0`), è una sequenza tipo `aa:bb:cc:dd:ee:ff`.
+Otterrai un output simile a:
 
-2. Accedi al pannello del tuo router (di solito `192.168.1.1`, verifica con `ip route | grep default`).
+```text
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP>
+    link/ether 00:e0:4c:68:91:ab brd ff:ff:ff:ff:ff:ff
+```
 
-3. Cerca la sezione **DHCP** (spesso sotto "LAN" o "Rete Locale") → **Riserva IP / Static Lease / DHCP Reservation** (il nome cambia a seconda del router).
+In questo esempio:
 
-4. Associa il MAC address del server all'IP che vuoi assegnargli in modo permanente (es. `192.168.1.14`).
+- `eth0` è il nome della scheda di rete;
+- `00:e0:4c:68:91:ab` è il relativo MAC address.
 
-5. Riavvia la connessione di rete del server (o l'intero server) per far sì che richieda un nuovo indirizzo, questa volta fisso:
+1. Accedi al pannello del tuo router (di solito `192.168.1.1`, verifica con `ip route | grep default`).
+
+2. Cerca la sezione **DHCP** (spesso sotto "LAN" o "Rete Locale") → **Riserva IP / Static Lease / DHCP Reservation** (il nome cambia a seconda del router).
+
+3. Associa il MAC address del server all'IP che vuoi assegnargli in modo permanente (es. `192.168.1.14`).
+
+4. Riavvia la connessione di rete del server (o l'intero server) per far sì che richieda un nuovo indirizzo, questa volta fisso:
 
    ```bash
    sudo systemctl restart systemd-networkd
    ```
 
-6. Verifica:
-   ```bash
-   ip a
-   ```
+   Verifica con `ip a` se il tuo ip è cambiato, in caso, riavvia il server e come prossimo login ssh userai il nuovo ip.
 
-## Metodo alternativo — Netplan (configurazione diretta sul server)
+## Metodo consigliato — Netplan (configurazione diretta sul server)
 
 Se preferisci non toccare il router, o il tuo router non supporta la **DHCP Reservation**, puoi configurare un indirizzo IP statico direttamente sul server tramite Netplan.
 
@@ -115,18 +122,6 @@ Per trovare il MAC address dell'adattatore esegui:
 ```bash
 ip link
 ```
-
-Otterrai un output simile a:
-
-```text
-2: enx00e04c6891ab: <BROADCAST,MULTICAST,UP,LOWER_UP>
-    link/ether 00:e0:4c:68:91:ab brd ff:ff:ff:ff:ff:ff
-```
-
-In questo esempio:
-
-- `enx00e04c6891ab` è il nome assegnato automaticamente da Linux;
-- `00:e0:4c:68:91:ab` è il MAC address da inserire nel campo `macaddress`.
 
 Grazie a `set-name: ethernet0`, una volta applicata la configurazione l'interfaccia verrà sempre vista dal sistema come `ethernet0`, rendendo la configurazione più semplice da leggere e mantenere.
 

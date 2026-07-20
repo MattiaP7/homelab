@@ -4,13 +4,11 @@
 
 Prima di installare qualsiasi cosa, entra nel BIOS del tuo hardware (tasto `Del`, `F2` o `F7` all'accensione, varia per marca) e verifica queste impostazioni:
 
-```mermaid
-flowchart LR
-    A[Entra nel BIOS] --> B[Disabilita Secure Boot]
-    B --> C[Verifica AHCI attivo\nnon RAID, per il controller disco]
-    C --> D["Restore on AC Power Loss:\nPower On"]
-    D --> E[Salva ed esci]
-```
+1. Accedi al BIOS/UEFI del computer.
+2. Disabilita **Secure Boot**.
+3. Verifica che il controller di archiviazione sia configurato in modalità **AHCI** e non **RAID**.
+4. Cerca l'opzione **Restore on AC Power Loss** (o un nome equivalente) e impostala su **Power On**, in modo che il server si riaccenda automaticamente dopo un'interruzione di corrente.
+5. Salva le modifiche ed esci dal BIOS/UEFI.
 
 | Impostazione                | Valore                            | Perché                                                                                       |
 | --------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -99,29 +97,54 @@ Ora la chiavetta è pronta per l'avvio.
 
 ## Installazione guidata
 
-1. Inserisci la USB nel server, avvia, ed entra nel **boot menu** (tasto `F7`/`F11`/`Esc`, dipende dal modello di scheda madre) per avviare dalla USB invece che dal disco interno
-2. **Lingua**: scegli la tua lingua preferita per l'installer
-3. **Layout tastiera**: seleziona il layout corretto
-4. **Network**: lascia DHCP automatico per ora — l'IP statico lo configureremo separatamente dopo, dal router (vedi sezione Rete e Sicurezza)
-5. **Storage**: seleziona **"Use an entire disk"**, scegliendo il disco interno del sistema (non un eventuale disco esterno destinato ai media, se già collegato)
-6. **Profile setup**:
-   - Your name: il tuo nome
-   - Server name (hostname): un nome identificativo, es. `homelab`
-   - Username: scegli un nome utente personale (evita `admin`/`root`, meno prevedibile per motivi di sicurezza)
-   - Password: robusta, salvala subito in un password manager
-7. **SSH Setup**: spunta **"Install OpenSSH server"** — è quello che userai per gestire il server da remoto
-8. **Featured Server Snaps**: non selezionare nulla in questa schermata — Docker lo installeremo manualmente in seguito, per avere sempre l'ultima versione ufficiale invece della snap
-9. Attendi il completamento dell'installazione, rimuovi la chiavetta USB quando richiesto, e riavvia
+Adesso procederò a guidarvi all'installazione del sistema operativo, ubuntu server rende la installazione molto semplice, io lo farò tramite una Virtual Machine ma i passaggi non cambieranno per nulla.
+
+Inserisci la USB nel server, avvia, ed entra nel **boot menu** (tasto `F7`/`F11`/`Esc`, dipende dal modello di scheda madre) per avviare dalla USB invece che dal disco interno
+
+**Lingua e Layout tastiera**, scegli la tua lingua preferita per l'installer e il layout corretto della tastiera
+
+<figure markdown="span">
+  ![Ubuntu server lingua](../img/ubuntu-2.png){ width="600" }
+  <figcaption>Ubuntu server lingua</figcaption>
+</figure>
+
+**Network**, lascia DHCP automatico per ora — l'IP statico lo configureremo separatamente dopo, dal router (vedi sezione Rete e Sicurezza)
+
+<figure markdown="span">
+  ![Ubuntu server Network configuration](../img/ubuntu-4.png){ width="600" }
+  <figcaption>Ubuntu server Network configuration</figcaption>
+</figure>
+
+**Storage**, seleziona **"Use an entire disk"**, scegliendo il disco interno del sistema, potete anche criptare il disco con una passphrase, scelta vostra
+
+<figure markdown="span">
+  ![Ubuntu server disk layout](../img/ubuntu-5.png){ width="600" }
+  <figcaption>Ubuntu server disk layout</figcaption>
+</figure>
+
+**Profile setup**:
+Your name: il tuo nome
+Server name (hostname): un nome identificativo, es. `homelab`
+Username: scegli un nome utente personale
+Password: robusta, salvala subito in un password manager
+
+<figure markdown="span">
+  ![Ubuntu server profile configuration](../img/ubuntu-6.png){ width="600" }
+  <figcaption>Ubuntu server profile configuration</figcaption>
+</figure>
+
+**SSH Setup**, spunta **"Install OpenSSH server"** — è quello che userai per gestire il server da remoto, se avete chiavi su github potete importarle
+
+<figure markdown="span">
+  ![Ubuntu server SSH setup](../img/ubuntu-7.png){ width="600" }
+  <figcaption>Ubuntu server SSH setup</figcaption>
+</figure>
+
+Adesso aspettate che termini il download e fate il primo accesso
 
 ## Primo accesso e aggiornamenti
 
-Dopo il riavvio, accedi con le credenziali create durante l'installazione (da tastiera/monitor collegati direttamente, oppure via SSH se conosci già l'IP assegnato):
-
-```bash
-ssh tuo_utente@<IP_ASSEGNATO>
-```
-
-Aggiorna subito il sistema:
+Dopo il riavvio, accedi con le credenziali create durante l'installazione, aggiorna subito il sistema:
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
@@ -131,22 +154,9 @@ sudo reboot
 ## Impostazioni di base
 
 ```bash
-# Hostname (se vuoi cambiarlo rispetto a quanto scelto durante l'installazione)
-sudo hostnamectl set-hostname homelab
-
 # Timezone
 sudo timedatectl set-timezone Europe/Rome
 
 # Verifica
 timedatectl
 ```
-
-## Trovare l'IP assegnato
-
-```bash
-ip a
-```
-
-Cerca la riga `inet` sotto la tua interfaccia di rete principale (spesso `eth0` o un nome simile tipo `enp3s0`) — quello è l'indirizzo IP attuale del server, assegnato automaticamente via DHCP. Lo renderemo fisso nella sezione dedicata all'IP statico.
-
-Con Ubuntu Server installato e aggiornato, il prossimo passo è configurare bene l'accesso SSH, che userai per tutta la gestione futura del server.

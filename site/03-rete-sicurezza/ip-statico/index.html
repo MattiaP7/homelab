@@ -60,6 +60,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -1131,10 +1133,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-consigliato-dhcp-reservation-dal-router" class="md-nav__link">
+  <a href="#dhcp-reservation-dal-router" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Metodo consigliato — DHCP Reservation dal router
+        DHCP Reservation dal router
       </span>
     </span>
   </a>
@@ -1142,10 +1144,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-alternativo-netplan-configurazione-diretta-sul-server" class="md-nav__link">
+  <a href="#metodo-consigliato-netplan-configurazione-diretta-sul-server" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Metodo alternativo — Netplan (configurazione diretta sul server)
+        Metodo consigliato — Netplan (configurazione diretta sul server)
       </span>
     </span>
   </a>
@@ -1942,10 +1944,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-consigliato-dhcp-reservation-dal-router" class="md-nav__link">
+  <a href="#dhcp-reservation-dal-router" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Metodo consigliato — DHCP Reservation dal router
+        DHCP Reservation dal router
       </span>
     </span>
   </a>
@@ -1953,10 +1955,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-alternativo-netplan-configurazione-diretta-sul-server" class="md-nav__link">
+  <a href="#metodo-consigliato-netplan-configurazione-diretta-sul-server" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Metodo alternativo — Netplan (configurazione diretta sul server)
+        Metodo consigliato — Netplan (configurazione diretta sul server)
       </span>
     </span>
   </a>
@@ -2080,14 +2082,20 @@
     B --&gt;|Sul server| C[Netplan\npiù controllo, più tecnico]
     B --&gt;|Sul router| D[DHCP Reservation\npiù semplice, consigliato ai principianti]</code></pre>
 <p><strong>Consiglio per chi inizia</strong>: usa la <strong>DHCP Reservation</strong> dal router. È più semplice, si configura da un'interfaccia grafica, e se in futuro cambi scheda di rete o reinstalli il sistema operativo, l'IP resta comunque fisso (perché la regola vive nel router, non nel server).</p>
-<h2 id="metodo-consigliato-dhcp-reservation-dal-router">Metodo consigliato — DHCP Reservation dal router<a class="headerlink" href="#metodo-consigliato-dhcp-reservation-dal-router" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Trova l'indirizzo MAC della scheda di rete del server:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
+<h2 id="dhcp-reservation-dal-router">DHCP Reservation dal router<a class="headerlink" href="#dhcp-reservation-dal-router" title="Permanent link">&para;</a></h2>
+<p>Trova l'indirizzo MAC della scheda di rete del server:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>link
 </span></code></pre></div>
-<p>Cerca la riga <code>link/ether</code> sotto la tua interfaccia di rete principale (es. <code>eth0</code>), è una sequenza tipo <code>aa:bb:cc:dd:ee:ff</code>.</p>
-<ol>
+<p>Otterrai un output simile a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    link/ether 00:e0:4c:68:91:ab brd ff:ff:ff:ff:ff:ff
+</span></code></pre></div>
+<p>In questo esempio:</p>
+<ul>
+<li><code>eth0</code> è il nome della scheda di rete;</li>
+<li>
+<p><code>00:e0:4c:68:91:ab</code> è il relativo MAC address.</p>
+</li>
 <li>
 <p>Accedi al pannello del tuo router (di solito <code>192.168.1.1</code>, verifica con <code>ip route | grep default</code>).</p>
 </li>
@@ -2100,15 +2108,11 @@
 <li>
 <p>Riavvia la connessione di rete del server (o l'intero server) per far sì che richieda un nuovo indirizzo, questa volta fisso:</p>
 </li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
 </span></code></pre></div>
-<ol>
-<li>Verifica:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ip<span class="w"> </span>a
-</span></code></pre></div></li>
-</ol>
-<h2 id="metodo-alternativo-netplan-configurazione-diretta-sul-server">Metodo alternativo — Netplan (configurazione diretta sul server)<a class="headerlink" href="#metodo-alternativo-netplan-configurazione-diretta-sul-server" title="Permanent link">&para;</a></h2>
+<p>Verifica con <code>ip a</code> se il tuo ip è cambiato, in caso, riavvia il server e come prossimo login ssh userai il nuovo ip.</p>
+<h2 id="metodo-consigliato-netplan-configurazione-diretta-sul-server">Metodo consigliato — Netplan (configurazione diretta sul server)<a class="headerlink" href="#metodo-consigliato-netplan-configurazione-diretta-sul-server" title="Permanent link">&para;</a></h2>
 <p>Se preferisci non toccare il router, o il tuo router non supporta la <strong>DHCP Reservation</strong>, puoi configurare un indirizzo IP statico direttamente sul server tramite Netplan.</p>
 <p>Prima di modificare il file di configurazione, crea sempre una copia di backup:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/etc/netplan/
@@ -2158,27 +2162,18 @@
 <p>Per trovare il MAC address dell'adattatore esegui:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ip<span class="w"> </span>link
 </span></code></pre></div>
-<p>Otterrai un output simile a:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>2: enx00e04c6891ab: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    link/ether 00:e0:4c:68:91:ab brd ff:ff:ff:ff:ff:ff
-</span></code></pre></div>
-<p>In questo esempio:</p>
-<ul>
-<li><code>enx00e04c6891ab</code> è il nome assegnato automaticamente da Linux;</li>
-<li><code>00:e0:4c:68:91:ab</code> è il MAC address da inserire nel campo <code>macaddress</code>.</li>
-</ul>
 <p>Grazie a <code>set-name: ethernet0</code>, una volta applicata la configurazione l'interfaccia verrà sempre vista dal sistema come <code>ethernet0</code>, rendendo la configurazione più semplice da leggere e mantenere.</p>
 <p>Applica la configurazione:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
 </span></code></pre></div>
 <p>Dopo l'applicazione verifica che tutto sia configurato correttamente.</p>
 <p>Controlla l'indirizzo IP assegnato:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ip<span class="w"> </span>a
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ip<span class="w"> </span>a
 </span></code></pre></div>
 <p>Dovresti vedere l'indirizzo configurato (<code>192.168.1.14</code> nell'esempio).</p>
 <h2 id="verifica-finale">Verifica finale<a class="headerlink" href="#verifica-finale" title="Permanent link">&para;</a></h2>
 <p>Da un altro dispositivo sulla stessa rete:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ping<span class="w"> </span><span class="m">192</span>.168.1.14
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ping<span class="w"> </span><span class="m">192</span>.168.1.14
 </span></code></pre></div>
 <p>Se risponde, l'IP statico è attivo. Da questo momento, tutte le configurazioni successive di questa guida (regole firewall, connessioni tra container, bookmark) faranno riferimento a questo indirizzo fisso.</p>
 <p>Con l'IP statico impostato, il prossimo passo è capire come proteggere il server con un firewall.</p>
@@ -2306,6 +2301,8 @@
     
     
       <script src="../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

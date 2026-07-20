@@ -6,28 +6,28 @@ Capire questo meccanismo è fondamentale: spiega perché il tuo IP è visibile a
 
 Quando scarichi un file da un sito normale, il flusso è semplice: tu chiedi il file a **un unico server**, e quel server te lo invia per intero. Il server sa che sei stato tu a scaricarlo (ha il tuo IP nei log), ma nessun altro utente lo sa.
 
+<figure markdown="span">
+  ![Download tramite architettura client/server](../img/download-client-server.png){ width="600" }
+  <figcaption>Download tramite architettura client/server</figcaption>
+</figure>
+
 ## Il download torrent — decentralizzato
 
 Un torrent funziona in modo completamente diverso: **non esiste un server centrale** che possiede il file. Il file è spezzettato in tanti piccoli pezzi, distribuiti tra centinaia o migliaia di persone diverse che lo stanno scaricando o l'hanno già scaricato.
 
-```mermaid
-flowchart TD
-    Tu((Il tuo\nqBittorrent))
-    P1[Peer 1\nha il 40% del file]
-    P2[Peer 2\nha il 100% - seeder]
-    P3[Peer 3\nha il 15% del file]
-    P4[Peer 4\nha il 70% del file]
-
-    Tu <--> P1
-    Tu <--> P2
-    Tu <--> P3
-    Tu <--> P4
-
-    P1 <--> P3
-    P2 <--> P4
-```
+<figure markdown="span">
+  ![Torrent](../img/torrent.png){ width="600" }
+  <figcaption>Download tramite il protocollo bittorrent (p2p)</figcaption>
+</figure>
 
 Scarichi piccoli pezzi da più persone contemporaneamente (**peer**), e allo stesso tempo **carichi** (upload) i pezzi che hai già ad altri che ne hanno bisogno. Chi possiede il file completo e continua a condividerlo si chiama **seeder**; chi lo sta ancora scaricando (e nel frattempo carica quello che ha) è un **leecher** o **peer**.
+
+<figure markdown="span">
+  ![Qbittorrent client web](../img/qbittorrent-client.jpg){ width="600" }
+  <figcaption>UI Web del client QBittorrent</figcaption>
+</figure>
+
+Come mostra la immagine il client ci fa vedere cosa stiama scaricando, ad esempio la ISO di ubuntu, quanti seeds e peers ci sono, quanto rimane al download etc...
 
 ## Il file .torrent e i tracker/indexer
 
@@ -36,16 +36,6 @@ Il file `.torrent` (o il "magnet link") non contiene il film — contiene solo l
 ## Perché il tuo IP è visibile — il punto cruciale
 
 Ecco il concetto chiave di tutta questa guida: **per scaricare e caricare pezzi da altri peer, il tuo client deve comunicare direttamente con loro** — non c'è un intermediario che nasconde chi sei. Ogni peer nello swarm (l'insieme di tutti quelli che stanno scaricando/condividendo quel file) **vede il tuo indirizzo IP reale**, allo stesso modo in cui tu vedi il loro.
-
-```mermaid
-flowchart TB
-    A[Il tuo indirizzo IP pubblico]
-    B[Peer connessi allo stesso torrent]
-    C[Software o soggetti che monitorano lo swarm]
-
-    A -->|è visibile a| B
-    B -->|l'IP può essere registrato| C
-```
 
 Questo è normale e strutturale al funzionamento dei torrent — non è un bug o una falla di sicurezza, è così che il protocollo è progettato per funzionare (decentralizzazione = niente intermediario che nasconde le identità).
 

@@ -1,0 +1,62 @@
+/* Ingrandisce il font di tutto il sito */
+:root {
+  font-size: 23px;
+}
+
+/* Ingrandisce solo il testo del corpo della pagina */
+.md-content {
+  font-size: 1.1rem; /* 1rem = 16px di default, 1.1rem = ~17.6px */
+}
+
+/* Ingrandisce i titoli (h1, h2, h3...) */
+.md-content h1 {
+  font-size: 2.2rem; /* Default ~2rem */
+}
+.md-content h2 {
+  font-size: 1.8rem; /* Default ~1.5rem */
+}
+.md-content h3 {
+  font-size: 1.4rem; /* Default ~1.25rem */
+}
+
+/* Ingrandisce il testo della barra laterale (se desiderato) */
+.md-nav {
+  font-size: 0.7rem; /* Leggermente più grande dello 0.9rem di default */
+}
+
+/* ============================================
+   AUMENTA IL FONT DEI BLOCCHI DI CODICE
+   ============================================ */
+
+/* Blocchi di codice (il testo dentro il riquadro) */
+.md-typeset code {
+  font-size: 0.9em !important; /* Aumentato da 0.85em a 0.9em */
+}
+
+/* Blocchi di codice all'interno di <pre> (quelli con lo sfondo scuro) */
+.md-typeset pre > code {
+  font-size: 0.95em !important; /* Aumentato da 0.85em a 0.95em */
+  line-height: 1.6 !important; /* Aumenta l'interlinea per leggibilità */
+}
+
+/* Codice inline (quello nel testo, tipo `comando`) */
+.md-typeset code:not(pre code) {
+  font-size: 0.9em !important; /* Aumentato da 0.85em a 0.9em */
+  padding: 0.1rem 0.4rem !important;
+}
+
+/* Numeri di riga (se usi linenums) */
+.md-typeset .linenos {
+  font-size: 0.9em !important;
+}
+
+/* Testo evidenziato nelle righe di codice */
+.md-typeset .highlight .hll {
+  font-size: inherit !important;
+}
+
+/* Commenti nel codice */
+.md-typeset .highlight .c,
+.md-typeset .highlight .c1 {
+  font-size: 0.9em !important;
+}

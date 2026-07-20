@@ -60,6 +60,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -1006,17 +1008,6 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         Impostazioni di base
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trovare-lip-assegnato" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Trovare l'IP assegnato
       </span>
     </span>
   </a>
@@ -2041,17 +2032,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#trovare-lip-assegnato" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Trovare l'IP assegnato
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2151,11 +2131,13 @@
 <h1 id="installare-ubuntu-server">Installare Ubuntu Server<a class="headerlink" href="#installare-ubuntu-server" title="Permanent link">&para;</a></h1>
 <h2 id="preparazione-biosuefi">Preparazione BIOS/UEFI<a class="headerlink" href="#preparazione-biosuefi" title="Permanent link">&para;</a></h2>
 <p>Prima di installare qualsiasi cosa, entra nel BIOS del tuo hardware (tasto <code>Del</code>, <code>F2</code> o <code>F7</code> all'accensione, varia per marca) e verifica queste impostazioni:</p>
-<pre class="mermaid"><code>flowchart LR
-    A[Entra nel BIOS] --&gt; B[Disabilita Secure Boot]
-    B --&gt; C[Verifica AHCI attivo\nnon RAID, per il controller disco]
-    C --&gt; D["Restore on AC Power Loss:\nPower On"]
-    D --&gt; E[Salva ed esci]</code></pre>
+<ol>
+<li>Accedi al BIOS/UEFI del computer.</li>
+<li>Disabilita <strong>Secure Boot</strong>.</li>
+<li>Verifica che il controller di archiviazione sia configurato in modalità <strong>AHCI</strong> e non <strong>RAID</strong>.</li>
+<li>Cerca l'opzione <strong>Restore on AC Power Loss</strong> (o un nome equivalente) e impostala su <strong>Power On</strong>, in modo che il server si riaccenda automaticamente dopo un'interruzione di corrente.</li>
+<li>Salva le modifiche ed esci dal BIOS/UEFI.</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -2239,44 +2221,55 @@
 </span></code></pre></div>
 <p>Ora la chiavetta è pronta per l'avvio.</p>
 <h2 id="installazione-guidata">Installazione guidata<a class="headerlink" href="#installazione-guidata" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Inserisci la USB nel server, avvia, ed entra nel <strong>boot menu</strong> (tasto <code>F7</code>/<code>F11</code>/<code>Esc</code>, dipende dal modello di scheda madre) per avviare dalla USB invece che dal disco interno</li>
-<li><strong>Lingua</strong>: scegli la tua lingua preferita per l'installer</li>
-<li><strong>Layout tastiera</strong>: seleziona il layout corretto</li>
-<li><strong>Network</strong>: lascia DHCP automatico per ora — l'IP statico lo configureremo separatamente dopo, dal router (vedi sezione Rete e Sicurezza)</li>
-<li><strong>Storage</strong>: seleziona <strong>"Use an entire disk"</strong>, scegliendo il disco interno del sistema (non un eventuale disco esterno destinato ai media, se già collegato)</li>
-<li><strong>Profile setup</strong>:</li>
-<li>Your name: il tuo nome</li>
-<li>Server name (hostname): un nome identificativo, es. <code>homelab</code></li>
-<li>Username: scegli un nome utente personale (evita <code>admin</code>/<code>root</code>, meno prevedibile per motivi di sicurezza)</li>
-<li>Password: robusta, salvala subito in un password manager</li>
-<li><strong>SSH Setup</strong>: spunta <strong>"Install OpenSSH server"</strong> — è quello che userai per gestire il server da remoto</li>
-<li><strong>Featured Server Snaps</strong>: non selezionare nulla in questa schermata — Docker lo installeremo manualmente in seguito, per avere sempre l'ultima versione ufficiale invece della snap</li>
-<li>Attendi il completamento dell'installazione, rimuovi la chiavetta USB quando richiesto, e riavvia</li>
-</ol>
+<p>Adesso procederò a guidarvi all'installazione del sistema operativo, ubuntu server rende la installazione molto semplice, io lo farò tramite una Virtual Machine ma i passaggi non cambieranno per nulla.</p>
+<p>Inserisci la USB nel server, avvia, ed entra nel <strong>boot menu</strong> (tasto <code>F7</code>/<code>F11</code>/<code>Esc</code>, dipende dal modello di scheda madre) per avviare dalla USB invece che dal disco interno</p>
+<p><strong>Lingua e Layout tastiera</strong>, scegli la tua lingua preferita per l'installer e il layout corretto della tastiera</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/ubuntu-2.png"><img alt="Ubuntu server lingua" src="../../img/ubuntu-2.png" width="600" /></a>
+<br />
+<figcaption>Ubuntu server lingua</figcaption>
+</figure>
+<p><strong>Network</strong>, lascia DHCP automatico per ora — l'IP statico lo configureremo separatamente dopo, dal router (vedi sezione Rete e Sicurezza)</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/ubuntu-4.png"><img alt="Ubuntu server Network configuration" src="../../img/ubuntu-4.png" width="600" /></a>
+<br />
+<figcaption>Ubuntu server Network configuration</figcaption>
+</figure>
+<p><strong>Storage</strong>, seleziona <strong>"Use an entire disk"</strong>, scegliendo il disco interno del sistema, potete anche criptare il disco con una passphrase, scelta vostra</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/ubuntu-5.png"><img alt="Ubuntu server disk layout" src="../../img/ubuntu-5.png" width="600" /></a>
+<br />
+<figcaption>Ubuntu server disk layout</figcaption>
+</figure>
+<p><strong>Profile setup</strong>:
+Your name: il tuo nome
+Server name (hostname): un nome identificativo, es. <code>homelab</code>
+Username: scegli un nome utente personale
+Password: robusta, salvala subito in un password manager</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/ubuntu-6.png"><img alt="Ubuntu server profile configuration" src="../../img/ubuntu-6.png" width="600" /></a>
+<br />
+<figcaption>Ubuntu server profile configuration</figcaption>
+</figure>
+<p><strong>SSH Setup</strong>, spunta <strong>"Install OpenSSH server"</strong> — è quello che userai per gestire il server da remoto, se avete chiavi su github potete importarle</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/ubuntu-7.png"><img alt="Ubuntu server SSH setup" src="../../img/ubuntu-7.png" width="600" /></a>
+<br />
+<figcaption>Ubuntu server SSH setup</figcaption>
+</figure>
+<p>Adesso aspettate che termini il download e fate il primo accesso</p>
 <h2 id="primo-accesso-e-aggiornamenti">Primo accesso e aggiornamenti<a class="headerlink" href="#primo-accesso-e-aggiornamenti" title="Permanent link">&para;</a></h2>
-<p>Dopo il riavvio, accedi con le credenziali create durante l'installazione (da tastiera/monitor collegati direttamente, oppure via SSH se conosci già l'IP assegnato):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh<span class="w"> </span>tuo_utente@&lt;IP_ASSEGNATO&gt;
-</span></code></pre></div>
-<p>Aggiorna subito il sistema:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade<span class="w"> </span>-y
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>reboot
+<p>Dopo il riavvio, accedi con le credenziali create durante l'installazione, aggiorna subito il sistema:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade<span class="w"> </span>-y
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>reboot
 </span></code></pre></div>
 <h2 id="impostazioni-di-base">Impostazioni di base<a class="headerlink" href="#impostazioni-di-base" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Hostname (se vuoi cambiarlo rispetto a quanto scelto durante l&#39;installazione)</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>homelab
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Timezone</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>sudo<span class="w"> </span>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Europe/Rome
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Verifica</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>timedatectl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Timezone</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Europe/Rome
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Verifica</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>timedatectl
 </span></code></pre></div>
-<h2 id="trovare-lip-assegnato">Trovare l'IP assegnato<a class="headerlink" href="#trovare-lip-assegnato" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ip<span class="w"> </span>a
-</span></code></pre></div>
-<p>Cerca la riga <code>inet</code> sotto la tua interfaccia di rete principale (spesso <code>eth0</code> o un nome simile tipo <code>enp3s0</code>) — quello è l'indirizzo IP attuale del server, assegnato automaticamente via DHCP. Lo renderemo fisso nella sezione dedicata all'IP statico.</p>
-<p>Con Ubuntu Server installato e aggiornato, il prossimo passo è configurare bene l'accesso SSH, che userai per tutta la gestione futura del server.</p>
 
 
 
@@ -2401,6 +2394,8 @@
     
     
       <script src="../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

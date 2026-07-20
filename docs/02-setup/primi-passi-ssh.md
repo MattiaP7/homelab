@@ -4,6 +4,16 @@
 
 ## Connessione base (con password, temporanea)
 
+Per prima cosa devi trovare il tuo ip address
+
+```bash
+ip a
+```
+
+Cerca la riga `inet` sotto la tua interfaccia di rete principale (spesso `eth0` o un nome simile tipo `enp3s0`) — quello è l'indirizzo IP attuale del server, assegnato automaticamente via DHCP. Lo renderemo fisso nella sezione dedicata all'IP statico.
+
+Adesso puoi collegarti al terminale del server dal tuo pc windows.
+
 ```bash
 ssh tuo_utente@<IP_DEL_SERVER>
 ```
@@ -88,18 +98,3 @@ sudo systemctl restart ssh
 | Chiunque conosca username può tentare la password | Serve fisicamente la chiave privata sul dispositivo che si connette |
 | Login root diretto possibile                      | Root disabilitato, va usato `sudo` dal tuo utente normale           |
 | Vulnerabile a bot che tentano password comuni     | Resistente a questo tipo di attacco automatizzato                   |
-
-## Comandi utili da tenere a portata di mano
-
-```bash
-# Vedere chi è connesso al server in questo momento
-who
-
-# Vedere i tentativi di accesso falliti (utile più avanti con Fail2ban)
-sudo tail -f /var/log/auth.log
-
-# Disconnettersi
-exit
-```
-
-Con SSH configurato in modo sicuro, il prossimo passo è installare CasaOS — la prima interfaccia grafica che userai per gestire i tuoi container.

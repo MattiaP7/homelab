@@ -60,6 +60,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -1016,17 +1018,6 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         Cosa ottieni con questo hardening
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comandi-utili-da-tenere-a-portata-di-mano" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Comandi utili da tenere a portata di mano
       </span>
     </span>
   </a>
@@ -2007,17 +1998,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#comandi-utili-da-tenere-a-portata-di-mano" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Comandi utili da tenere a portata di mano
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2117,7 +2097,12 @@
 <h1 id="primi-passi-con-ssh">Primi passi con SSH<a class="headerlink" href="#primi-passi-con-ssh" title="Permanent link">&para;</a></h1>
 <p><strong>SSH</strong> (Secure Shell) è il modo in cui gestirai il server da remoto per tutta questa guida — invece di collegare monitor e tastiera ogni volta, ti connetti dal tuo PC principale e operi come se fossi seduto davanti al server.</p>
 <h2 id="connessione-base-con-password-temporanea">Connessione base (con password, temporanea)<a class="headerlink" href="#connessione-base-con-password-temporanea" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
+<p>Per prima cosa devi trovare il tuo ip address</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
+</span></code></pre></div>
+<p>Cerca la riga <code>inet</code> sotto la tua interfaccia di rete principale (spesso <code>eth0</code> o un nome simile tipo <code>enp3s0</code>) — quello è l'indirizzo IP attuale del server, assegnato automaticamente via DHCP. Lo renderemo fisso nella sezione dedicata all'IP statico.</p>
+<p>Adesso puoi collegarti al terminale del server dal tuo pc windows.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
 </span></code></pre></div>
 <p>Al primo collegamento, ti verrà chiesto di confermare l'identità del server (accetta con <code>yes</code>) e poi la password impostata durante l'installazione.</p>
 <h2 id="perche-passare-allautenticazione-a-chiave">Perché passare all'autenticazione a chiave<a class="headerlink" href="#perche-passare-allautenticazione-a-chiave" title="Permanent link">&para;</a></h2>
@@ -2134,34 +2119,34 @@
     S-&gt;&gt;S: Verifica che la chiave pubblica&lt;br/&gt;corrisponda a una privata nota
     S--&gt;&gt;PC: Accesso consentito, senza password</code></pre>
 <h2 id="generazione-della-chiave-sul-tuo-pc-non-sul-server">Generazione della chiave (sul tuo PC, non sul server)<a class="headerlink" href="#generazione-della-chiave-sul-tuo-pc-non-sul-server" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;homelab-access&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;homelab-access&quot;</span>
 </span></code></pre></div>
 <p>Premi invio per accettare il percorso di default. Puoi impostare una passphrase per protezione extra (consigliato), o lasciarla vuota per comodità.</p>
 <h2 id="copiare-la-chiave-pubblica-sul-server">Copiare la chiave pubblica sul server<a class="headerlink" href="#copiare-la-chiave-pubblica-sul-server" title="Permanent link">&para;</a></h2>
 <p>Su Linux e macOS è possibile utilizzare il comando:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh-copy-id<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh-copy-id<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
 </span></code></pre></div>
 <p>Su Windows, invece, <code>ssh-copy-id</code> non è disponibile di default nel client OpenSSH. È possibile ottenere lo stesso risultato con PowerShell:</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">type </span><span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span> <span class="p">|</span> <span class="n">ssh</span> <span class="n">tuo_utente</span><span class="p">@&lt;</span><span class="n">IP_DEL_SERVER</span><span class="p">&gt;</span> <span class="s2">&quot;mkdir -p ~/.ssh &amp;&amp; chmod 700 ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys&quot;</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">type </span><span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span> <span class="p">|</span> <span class="n">ssh</span> <span class="n">tuo_utente</span><span class="p">@&lt;</span><span class="n">IP_DEL_SERVER</span><span class="p">&gt;</span> <span class="s2">&quot;mkdir -p ~/.ssh &amp;&amp; chmod 700 ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys&quot;</span>
 </span></code></pre></div>
 <p>Dopo aver eseguito il comando, potrai autenticarti al server tramite chiave SSH senza dover reinserire la password (a condizione che l'autenticazione tramite chiave sia abilitata sul server).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh<span class="w"> </span>tuo_utente@&lt;IP_DEL_SERVER&gt;
 </span></code></pre></div>
 <p>Se accedi senza che ti venga chiesta la password, la chiave funziona correttamente.</p>
 <h2 id="disabilitare-laccesso-via-password-hardening">Disabilitare l'accesso via password (hardening)<a class="headerlink" href="#disabilitare-laccesso-via-password-hardening" title="Permanent link">&para;</a></h2>
 <p>Solo <strong>dopo</strong> aver verificato che l'accesso a chiave funziona, sul server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/ssh/sshd_config
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/ssh/sshd_config
 </span></code></pre></div>
 <p>Modifica (o aggiungi) queste righe:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>PermitRootLogin no
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>PasswordAuthentication no
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>PubkeyAuthentication yes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>PermitRootLogin no
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>PasswordAuthentication no
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>PubkeyAuthentication yes
 </span></code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Verifica PRIMA di chiudere la sessione attuale</p>
 </div>
 <p>Prima di riavviare il servizio SSH, apri una <strong>nuova</strong> sessione SSH separata (un secondo terminale) per confermare che il login a chiave funzioni ancora. Se disabiliti la password senza aver verificato la chiave, e qualcosa non va, resti bloccato fuori dal server — servirà accesso fisico per rimediare.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </span></code></pre></div>
 <h2 id="cosa-ottieni-con-questo-hardening">Cosa ottieni con questo hardening<a class="headerlink" href="#cosa-ottieni-con-questo-hardening" title="Permanent link">&para;</a></h2>
 <table>
@@ -2186,17 +2171,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="comandi-utili-da-tenere-a-portata-di-mano">Comandi utili da tenere a portata di mano<a class="headerlink" href="#comandi-utili-da-tenere-a-portata-di-mano" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Vedere chi è connesso al server in questo momento</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>who
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Vedere i tentativi di accesso falliti (utile più avanti con Fail2ban)</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/auth.log
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Disconnettersi</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">exit</span>
-</span></code></pre></div>
-<p>Con SSH configurato in modo sicuro, il prossimo passo è installare CasaOS — la prima interfaccia grafica che userai per gestire i tuoi container.</p>
 
 
 
@@ -2321,6 +2295,8 @@
     
     
       <script src="../../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>
