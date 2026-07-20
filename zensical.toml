@@ -28,6 +28,11 @@ site_author = "Mattia Pirazzi"
 # documentation you should set this.
 # Read more: https://zensical.org/docs/setup/basics/#site_url
 #site_url = "https://www.example.com/"
+site_url = "https://mattiap7.github.io/homelab/"  # 🔥 FIX: usa = non :
+
+edit_uri = "edit/main/docs/"  # 🔥 FIX: usa = non :
+repo_url = "https://github.com/mattiaP7/homelab"
+repo_name = "mattiaP7/homelab"
 
 # The copyright notice appears in the page footer and can contain an HTML
 # fragment.
@@ -168,13 +173,13 @@ features = [
     # will generate an edit button for the page. This works for common
     # repository hosting services.
     # https://zensical.org/docs/setup/repository/#content-actions
-    #"content.action.edit",
+    "content.action.edit",  # 🔥 FIX: abilitato
 
     # If you have a repository configured and turn on this feature, Zensical
     # will generate a button that allows the user to view the Markdown
     # code for the current page.
     # https://zensical.org/docs/setup/repository/#content-actions
-    #"content.action.view",
+    "content.action.view",  # 🔥 FIX: abilitato
 
     # Code annotations allow you to add an icon with a tooltip to your
     # code blocks to provide explanations at crucial points.
@@ -215,7 +220,7 @@ features = [
     # Turn on this feature to expand all collapsible sections in the
     # navigation sidebar by default.
     # https://zensical.org/docs/setup/navigation/#navigation-expansion
-    # "navigation.expand",
+    "navigation.expand",  # 🔥 FIX: abilitato
 
     # This feature turns on navigation elements in the footer that allow the
     # user to navigate to a next or previous page.
@@ -261,12 +266,12 @@ features = [
     # When tabs are enabled, top-level sections are rendered in a menu layer
     # below the header for viewports above 1220px, but remain as-is on mobile.
     # https://zensical.org/docs/setup/navigation/#navigation-tabs
-    #"navigation.tabs",
+    "navigation.tabs",
 
     # When sticky tabs are enabled, navigation tabs will lock below the header
     # and always remain visible when scrolling down.
     # https://zensical.org/docs/setup/navigation/#sticky-navigation-tabs
-    #"navigation.tabs.sticky",
+    "navigation.tabs.sticky",
 
     # A back-to-top button can be shown when the user, after scrolling down,
     # starts to scroll up again.
@@ -284,30 +289,20 @@ features = [
     # https://zensical.org/docs/setup/search/#search-highlighting
     "search.highlight",
 
+    # When search suggestions are enabled, Zensical will show suggestions
+    # while the user is typing in the search bar.
+    # https://zensical.org/docs/setup/search/#search-suggestions
+    "search.suggest",
+
     # When anchor following for the table of contents is enabled, the sidebar
     # is automatically scrolled so that the active anchor is always visible.
     # https://zensical.org/docs/setup/navigation/#anchor-following
-    # "toc.follow",
+    "toc.follow",
 
     # When navigation integration for the table of contents is enabled, it is
     # always rendered as part of the navigation sidebar on the left.
     # https://zensical.org/docs/setup/navigation/#navigation-integration
     #"toc.integrate",
-    "navigation.tabs",          # Mette le sezioni principali in alto
-    "navigation.tabs.sticky",   # Le tiene fisse quando scrolli
-    "navigation.sections",      # Le sottosezioni nella barra laterale
-    "navigation.expand",        # Espande automaticamente le sezioni
-    "navigation.instant",
-    "navigation.tracking",
-    "navigation.top",
-    "navigation.footer",
-    "toc.follow",
-    "search.suggest",
-    "search.highlight",
-    "content.code.copy",
-    "content.code.annotate",
-    "content.action.edit",
-    "content.action.view"
 ]
 
 # ----------------------------------------------------------------------------
@@ -326,8 +321,13 @@ features = [
 # - https://zensical.org/docs/setup/logo-and-icons
 # - https://github.com/zensical/ui/tree/master/dist/.icons
 # ----------------------------------------------------------------------------
-#[project.theme.icon]
-#logo = "lucide/smile"
+[project.theme.icon]
+logo = "lucide/server"
+edit = "lucide/file-pen"
+view = "lucide/file-code-corner"
+previous = "fontawesome/solid/angle-left"
+next = "fontawesome/solid/angle-right"
+favicon = "img/server.png"
 
 # ----------------------------------------------------------------------------
 # In the "font" subsection you can configure the fonts used. By default, fonts
@@ -335,9 +335,9 @@ features = [
 # of suitably licensed fonts. There are options for a normal text font and for
 # a monospaced font used in code blocks.
 # ----------------------------------------------------------------------------
-#[project.theme.font]
-#text = "Inter"
-#code = "Jetbrains Mono"
+[project.theme.font]
+text = "Inter"
+code = "Jetbrains Mono"
 
 # ----------------------------------------------------------------------------
 # In the "palette" subsection you can configure options for the color scheme.
@@ -361,9 +361,9 @@ toggle.name = "Switch to light mode"
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
 # ----------------------------------------------------------------------------
-#[[project.extra.social]]
-#icon = "fontawesome/brands/github"
-#link = "https://github.com/user/repo"
+[[project.extra.social]]  # 🔥 FIX: sezione corretta
+icon = "fontawesome/brands/github"
+link = "https://github.com/mattiaP7/homelab"
 
 # ----------------------------------------------------------------------------
 # In this section you can configure the Markdown extensions that are used when
