@@ -381,8 +381,6 @@
       
         
       
-        
-      
     
     
     
@@ -1322,8 +1320,6 @@
       
         
       
-        
-      
     
     
     
@@ -1474,10 +1470,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installazione-base" class="md-nav__link">
+  <a href="#installazione" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione base
+        Installazione
       </span>
     </span>
   </a>
@@ -1493,9 +1489,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Aggiungere indexer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#indexer-consigliati-per-iniziare" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1503,6 +1500,11 @@
       </span>
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1630,33 +1632,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../qbittorrent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  qBittorrent sicuro
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1758,14 +1733,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
+      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Temi e Custom CSS
+  Plugin utili
 
     
   </span>
@@ -1785,14 +1760,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
+      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Plugin utili
+  Temi e Custom CSS
 
     
   </span>
@@ -1983,10 +1958,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installazione-base" class="md-nav__link">
+  <a href="#installazione" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione base
+        Installazione
       </span>
     </span>
   </a>
@@ -2002,9 +1977,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Aggiungere indexer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#indexer-consigliati-per-iniziare" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -2012,6 +1988,11 @@
       </span>
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2128,8 +2109,6 @@
       
         
       
-        
-      
     
     
     
@@ -2182,29 +2161,32 @@
     P --&gt; I3[Indexer 3]
     P --&gt;|propaga automaticamente| R[Radarr]
     P --&gt;|propaga automaticamente| S[Sonarr]</code></pre>
-<h2 id="installazione-base">Installazione base<a class="headerlink" href="#installazione-base" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">prowlarr</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/prowlarr:latest</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prowlarr</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=${PUID}</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=${PGID}</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./prowlarr:/config</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9696:9696&quot;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span></code></pre></div>
+<h2 id="installazione">Installazione<a class="headerlink" href="#installazione" title="Permanent link">&para;</a></h2>
+<p>Per installare Prowlarr:</p>
+<ol>
+<li>Apri <strong>CasaOS</strong>.</li>
+<li>Vai su <strong>App Store</strong>.</li>
+<li>Cerca <strong>Prowlarr</strong>.</li>
+<li>Clicca sulla freccia ▼ accanto al pulsante <strong>Installa</strong>.</li>
+<li>Seleziona <strong>Installazione personalizzata</strong>.</li>
+<li>Nella sezione <strong>Rete</strong>, sostituisci <strong>bridge</strong> con <strong>vpn-network</strong>.</li>
+<li>Completa l'installazione cliccando su <strong>Installa</strong>.</li>
+</ol>
+<p>In questo modo Prowlarr verrà collegato alla rete Docker <code>vpn-network</code> e potrà comunicare correttamente con gli altri servizi del tuo homelab.</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/rete-vpn-container.png"><img alt="Rete VPN creata in precedenza" src="../../img/rete-vpn-container.png" width="600" /></a>
+<br />
+<figcaption>Rete VPN creata in precedenza</figcaption>
+</figure>
 <h2 id="aggiungere-indexer">Aggiungere indexer<a class="headerlink" href="#aggiungere-indexer" title="Permanent link">&para;</a></h2>
 <ol>
 <li><code>Indexers → Add Indexer</code></li>
 <li>Cerca per nome (es. "1337x", "TorrentGalaxy") — la maggior parte è già nel catalogo integrato, non serve inserire URL manualmente</li>
-<li>Compila eventuali campi richiesti (per gli indexer pubblici spesso basta "Enable" e "Save")</li>
-<li><code>Indexers → Test All</code> per verificare che siano tutti raggiungibili</li>
+<li>Come base url prova uno tra quelli elencati</li>
+<li><code>Test</code> per verificare che sia raggiungibile</li>
+<li>Se non si presentano errori, clicca su <code>save</code></li>
 </ol>
-<h2 id="indexer-consigliati-per-iniziare">Indexer consigliati per iniziare<a class="headerlink" href="#indexer-consigliati-per-iniziare" title="Permanent link">&para;</a></h2>
+<h3 id="indexer-consigliati-per-iniziare">Indexer consigliati per iniziare<a class="headerlink" href="#indexer-consigliati-per-iniziare" title="Permanent link">&para;</a></h3>
 <p><strong>Generici (film e TV):</strong></p>
 <table>
 <thead>
@@ -2217,10 +2199,6 @@
 <tr>
 <td>1337x</td>
 <td>Molto popolare, richiede FlareSolverr (vedi sotto)</td>
-</tr>
-<tr>
-<td>TorrentGalaxy</td>
-<td>Buona copertura, richiede FlareSolverr</td>
 </tr>
 <tr>
 <td>The Pirate Bay</td>
@@ -2253,28 +2231,20 @@
 <td>Nyaa.si</td>
 <td>La fonte principale per anime</td>
 </tr>
-<tr>
-<td>SubsPlease</td>
-<td>Fansub di alta qualità, molto aggiornato</td>
-</tr>
-<tr>
-<td>Shana Project</td>
-<td>Anime</td>
-</tr>
 </tbody>
 </table>
 <h2 id="flaresolverr-necessario-per-indexer-protetti-da-cloudflare">FlareSolverr — necessario per indexer protetti da Cloudflare<a class="headerlink" href="#flaresolverr-necessario-per-indexer-protetti-da-cloudflare" title="Permanent link">&para;</a></h2>
 <p>Molti indexer pubblici sono dietro Cloudflare, che blocca le richieste automatiche con un captcha/JS challenge. <strong>FlareSolverr</strong> è un container che risolve questa protezione al posto di Prowlarr.</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">flaresolverr</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/flaresolverr/flaresolverr:latest</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flaresolverr</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_LEVEL=info</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8191:8191&quot;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">flaresolverr</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/flaresolverr/flaresolverr:latest</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flaresolverr</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_LEVEL=info</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8191:8191&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </span></code></pre></div>
 <h3 id="collegarlo-agli-indexer-tramite-tag-non-un-menu-diretto">Collegarlo agli indexer — tramite Tag, non un menu diretto<a class="headerlink" href="#collegarlo-agli-indexer-tramite-tag-non-un-menu-diretto" title="Permanent link">&para;</a></h3>
 <p>A differenza di quanto ci si aspetterebbe, il collegamento tra un indexer e FlareSolverr <strong>non avviene con una selezione diretta</strong>, ma tramite <strong>tag condivisi</strong>:</p>
@@ -2294,9 +2264,14 @@
 <h2 id="collegare-prowlarr-a-radarrsonarr">Collegare Prowlarr a Radarr/Sonarr<a class="headerlink" href="#collegare-prowlarr-a-radarrsonarr" title="Permanent link">&para;</a></h2>
 <p><code>Settings → Apps → Add Application</code>:</p>
 <ul>
-<li><strong>Radarr</strong>: URL <code>http://radarr:7878</code>, API key di Radarr (<code>Settings → General</code> in Radarr)</li>
+<li><strong>Radarr</strong>: URL <code>http://radarr:7878</code>, API key di Radarr (<code>Settings → General, sotto la voce "Security"</code> in Radarr)</li>
 <li><strong>Sonarr</strong>: URL <code>http://sonarr:8989</code>, API key di Sonarr</li>
 </ul>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/prowlarr-radarr-sonarr-apps.png"><img alt="Aggiungi apps in prowlarr" src="../../img/prowlarr-radarr-sonarr-apps.png" width="600" /></a>
+<br />
+<figcaption>Aggiungere le applicazioni di radarr/sonarr in prowlarr</figcaption>
+</figure>
 <h2 id="categorie-un-dettaglio-che-causa-molti-problemi">Categorie — un dettaglio che causa molti problemi<a class="headerlink" href="#categorie-un-dettaglio-che-causa-molti-problemi" title="Permanent link">&para;</a></h2>
 <p>Ogni indexer ha delle <strong>categorie</strong> associate (Movies, TV, Anime...). Se le categorie sincronizzate tra Prowlarr e Radarr/Sonarr non corrispondono a quello che l'indexer offre davvero, la sincronizzazione fallisce con errori tipo <em>"no results in the configured categories"</em>.</p>
 <p><code>Settings → Apps → Radarr → Sync Categories</code>: mantieni solo categorie Movies pertinenti. Indexer puramente anime (Nyaa, SubsPlease) vanno collegati <strong>solo a Sonarr</strong>, non a Radarr, a meno che tu non scarichi anche film anime con categorie apposite.</p>

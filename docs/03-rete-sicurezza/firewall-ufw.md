@@ -4,7 +4,7 @@
 
 Ogni servizio che installerai (Jellyfin, Radarr, Sonarr, qBittorrent...) apre una **porta di rete** per essere raggiungibile via browser. Senza un firewall, **ogni dispositivo sulla tua rete** (e potenzialmente, in caso di errori di configurazione del router, anche da Internet) può raggiungere quelle porte.
 
-**UFW** (Uncomplicated Firewall) è lo strumento che decide, porta per porta, chi può connettersi al tuo server. La regola di base che useremo in tutta questa guida è: **tutto bloccato di default, aperto solo quello che serve, solo per chi è sulla tua rete locale**.
+**[UFW](https://manpages.org/ufw/8)** (Uncomplicated Firewall) è lo strumento che decide, porta per porta, chi può connettersi al tuo server. La regola di base che useremo in tutta questa guida è: **tutto bloccato di default, aperto solo quello che serve, solo per chi è sulla tua rete locale**.
 
 ## Il principio guida
 
@@ -25,15 +25,14 @@ sudo apt install ufw -y
 # Politiche di default: blocca tutto in entrata, permetti tutto in uscita
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
-
-# SSH — fai questa regola PER PRIMA, sempre
-sudo ufw allow from 192.168.1.0/24 to any port 22 proto tcp comment 'SSH'
 ```
 
 !!! danger "Non saltare questo passaggio"
 Se attivi UFW senza aver prima aggiunto la regola SSH, ti blocchi fuori dal server e servirà accesso fisico (monitor+tastiera) per rimediare. Aggiungi sempre SSH per primo, verifica con `sudo ufw show added` che ci sia, e solo dopo procedi.
 
 ## Regole per i servizi principali
+
+!!! danger "Ho scritto tutte le regole MA come notate sto usando le MIE porte, forse alcune vostre applicazioni usano porte diverse"
 
 ```bash
 # SSH (Rete Locale)

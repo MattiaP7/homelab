@@ -2,41 +2,35 @@
 
 Radarr (film) e Sonarr (serie TV) funziovim in modo quasi identico — questa pagina li tratta insieme, evidenziando le differenze dove esistono.
 
-## Installazione base
+## Installare Radarr e Sonarr
 
-```yaml
-services:
-  radarr:
-    image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ./radarr:/config
-      - /DATA/Media/Movies:/movies
-      - /DATA/Downloads:/downloads
-    ports:
-      - "7878:7878"
-    restart: unless-stopped
+Anche **Radarr** e **Sonarr** possono essere installati direttamente dallo **Store di CasaOS**, senza utilizzare Docker Compose.
 
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ./sonarr:/config
-      - /DATA/Media/TV:/tv
-      - /DATA/Media/Anime:/anime
-      - /DATA/Downloads:/downloads
-    ports:
-      - "8989:8989"
-    restart: unless-stopped
-```
+### Radarr
+
+1. Apri **CasaOS**.
+2. Vai su **App Store**.
+3. Cerca **Radarr**.
+4. Clicca sulla freccia ▼ accanto al pulsante **Installa**.
+5. Seleziona **Installazione personalizzata**.
+6. Nella sezione **Rete**, sostituisci **bridge** con **vpn-network**.
+7. Completa l'installazione.
+
+### Sonarr
+
+1. Apri **CasaOS**.
+2. Vai su **App Store**.
+3. Cerca **Sonarr**.
+4. Clicca sulla freccia ▼ accanto al pulsante **Installa**.
+5. Seleziona **Installazione personalizzata**.
+6. Nella sezione **Rete**, sostituisci **bridge** con **vpn-network**.
+7. Nella sezione **Volumes**, aggiungi il seguente volume:
+   - **Host:** `/DATA/Media/Anime`
+   - **Container:** `/anime`
+
+8. Completa l'installazione.
+
+Per creare la cartella `/DATA/Media/Anime`, apri l'app **Files** di CasaOS e crea la directory all'interno della cartella `Media`. Mantenere una cartella dedicata agli anime permette di gestirli separatamente dalle altre serie TV, rendendo più semplice l'organizzazione della libreria e la configurazione di Sonarr.
 
 ## Collegamento al download client (qBittorrent via Gluetun)
 

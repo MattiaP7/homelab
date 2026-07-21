@@ -87,12 +87,12 @@ nav = [
         { "Prowlarr e indexer" = "05-stack-arr/prowlarr.md" },
         { "Radarr e Sonarr" = "05-stack-arr/radarr-sonarr.md" },
         { "Bazarr" = "05-stack-arr/bazarr.md" },
-        { "qBittorrent sicuro" = "05-stack-arr/qbittorrent.md" }
+        # { "qBittorrent sicuro" = "05-stack-arr/qbittorrent.md" }
     ]},
     { "Jellyfin" = [
         { "Installazione e hardware acceleration" = "06-jellyfin/setup.md" },
-        { "Temi e Custom CSS" = "06-jellyfin/temi-css.md" },
-        { "Plugin utili" = "06-jellyfin/plugin.md" }
+        { "Plugin utili" = "06-jellyfin/plugin.md" },
+        { "Temi e Custom CSS" = "06-jellyfin/temi-css.md" }
     ]},
     { "Manutenzione" = [
         { "Backup e migrazione" = "07-manutenzione/backup-migrazione.md" },

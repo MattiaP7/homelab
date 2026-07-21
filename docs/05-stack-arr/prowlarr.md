@@ -15,39 +15,40 @@ flowchart LR
     P -->|propaga automaticamente| S[Sonarr]
 ```
 
-## Installazione base
+## Installazione
 
-```yaml
-services:
-  prowlarr:
-    image: lscr.io/linuxserver/prowlarr:latest
-    container_name: prowlarr
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ./prowlarr:/config
-    ports:
-      - "9696:9696"
-    restart: unless-stopped
-```
+Per installare Prowlarr:
+
+1. Apri **CasaOS**.
+2. Vai su **App Store**.
+3. Cerca **Prowlarr**.
+4. Clicca sulla freccia ▼ accanto al pulsante **Installa**.
+5. Seleziona **Installazione personalizzata**.
+6. Nella sezione **Rete**, sostituisci **bridge** con **vpn-network**.
+7. Completa l'installazione cliccando su **Installa**.
+
+In questo modo Prowlarr verrà collegato alla rete Docker `vpn-network` e potrà comunicare correttamente con gli altri servizi del tuo homelab.
+
+<figure markdown="span">
+  ![Rete VPN creata in precedenza](../img/rete-vpn-container.png){ width="600" }
+  <figcaption>Rete VPN creata in precedenza</figcaption>
+</figure>
 
 ## Aggiungere indexer
 
 1. `Indexers → Add Indexer`
 2. Cerca per nome (es. "1337x", "TorrentGalaxy") — la maggior parte è già nel catalogo integrato, non serve inserire URL manualmente
-3. Compila eventuali campi richiesti (per gli indexer pubblici spesso basta "Enable" e "Save")
-4. `Indexers → Test All` per verificare che siano tutti raggiungibili
+3. Come base url prova uno tra quelli elencati
+4. `Test` per verificare che sia raggiungibile
+5. Se non si presentano errori, clicca su `save`
 
-## Indexer consigliati per iniziare
+### Indexer consigliati per iniziare
 
 **Generici (film e TV):**
 
 | Indexer        | Note                                               |
 | -------------- | -------------------------------------------------- |
 | 1337x          | Molto popolare, richiede FlareSolverr (vedi sotto) |
-| TorrentGalaxy  | Buona copertura, richiede FlareSolverr             |
 | The Pirate Bay | Storico, copertura ampia                           |
 | LimeTorrents   | Buon complemento                                   |
 | EZTV           | Specifico per serie TV                             |
@@ -55,11 +56,9 @@ services:
 
 **Anime:**
 
-| Indexer       | Note                                     |
-| ------------- | ---------------------------------------- |
-| Nyaa.si       | La fonte principale per anime            |
-| SubsPlease    | Fansub di alta qualità, molto aggiornato |
-| Shana Project | Anime                                    |
+| Indexer | Note                          |
+| ------- | ----------------------------- |
+| Nyaa.si | La fonte principale per anime |
 
 ## FlareSolverr — necessario per indexer protetti da Cloudflare
 
@@ -100,8 +99,13 @@ FlareSolverr apre un browser headless reale per risolvere la protezione — ogni
 
 `Settings → Apps → Add Application`:
 
-- **Radarr**: URL `http://radarr:7878`, API key di Radarr (`Settings → General` in Radarr)
+- **Radarr**: URL `http://radarr:7878`, API key di Radarr (`Settings → General, sotto la voce "Security" ` in Radarr)
 - **Sonarr**: URL `http://sonarr:8989`, API key di Sonarr
+
+<figure markdown="span">
+  ![Aggiungi apps in prowlarr](../img/prowlarr-radarr-sonarr-apps.png){ width="600" }
+  <figcaption>Aggiungere le applicazioni di radarr/sonarr in prowlarr</figcaption>
+</figure>
 
 ## Categorie — un dettaglio che causa molti problemi
 

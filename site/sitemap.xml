@@ -64,16 +64,13 @@
         <loc>https://mattiap7.github.io/homelab/05-stack-arr/bazarr/</loc>
       </url>
       <url>
-        <loc>https://mattiap7.github.io/homelab/05-stack-arr/qbittorrent/</loc>
-      </url>
-      <url>
         <loc>https://mattiap7.github.io/homelab/06-jellyfin/setup/</loc>
       </url>
       <url>
-        <loc>https://mattiap7.github.io/homelab/06-jellyfin/temi-css/</loc>
+        <loc>https://mattiap7.github.io/homelab/06-jellyfin/plugin/</loc>
       </url>
       <url>
-        <loc>https://mattiap7.github.io/homelab/06-jellyfin/plugin/</loc>
+        <loc>https://mattiap7.github.io/homelab/06-jellyfin/temi-css/</loc>
       </url>
       <url>
         <loc>https://mattiap7.github.io/homelab/07-manutenzione/backup-migrazione/</loc>

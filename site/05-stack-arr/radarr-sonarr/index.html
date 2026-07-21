@@ -381,8 +381,6 @@
       
         
       
-        
-      
     
     
     
@@ -1322,8 +1320,6 @@
       
         
       
-        
-      
     
     
     
@@ -1490,13 +1486,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installazione-base" class="md-nav__link">
+  <a href="#installare-radarr-e-sonarr" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione base
+        Installare Radarr e Sonarr
       </span>
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Installare Radarr e Sonarr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radarr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sonarr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1590,33 +1614,6 @@
     
   
   Bazarr
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../qbittorrent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  qBittorrent sicuro
 
     
   </span>
@@ -1730,14 +1727,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
+      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Temi e Custom CSS
+  Plugin utili
 
     
   </span>
@@ -1757,14 +1754,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
+      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Plugin utili
+  Temi e Custom CSS
 
     
   </span>
@@ -1944,13 +1941,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installazione-base" class="md-nav__link">
+  <a href="#installare-radarr-e-sonarr" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione base
+        Installare Radarr e Sonarr
       </span>
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Installare Radarr e Sonarr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radarr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sonarr
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2072,8 +2097,6 @@
       
         
       
-        
-      
     
     
     
@@ -2118,39 +2141,36 @@
 
 <h1 id="radarr-e-sonarr">Radarr e Sonarr<a class="headerlink" href="#radarr-e-sonarr" title="Permanent link">&para;</a></h1>
 <p>Radarr (film) e Sonarr (serie TV) funziovim in modo quasi identico — questa pagina li tratta insieme, evidenziando le differenze dove esistono.</p>
-<h2 id="installazione-base">Installazione base<a class="headerlink" href="#installazione-base" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">radarr</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/radarr:latest</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">radarr</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=${PUID}</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=${PGID}</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./radarr:/config</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Media/Movies:/movies</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Downloads:/downloads</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;7878:7878&quot;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="nt">sonarr</span><span class="p">:</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/sonarr:latest</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sonarr</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=${PUID}</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=${PGID}</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./sonarr:/config</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Media/TV:/tv</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Media/Anime:/anime</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Downloads:/downloads</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8989:8989&quot;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span></code></pre></div>
+<h2 id="installare-radarr-e-sonarr">Installare Radarr e Sonarr<a class="headerlink" href="#installare-radarr-e-sonarr" title="Permanent link">&para;</a></h2>
+<p>Anche <strong>Radarr</strong> e <strong>Sonarr</strong> possono essere installati direttamente dallo <strong>Store di CasaOS</strong>, senza utilizzare Docker Compose.</p>
+<h3 id="radarr">Radarr<a class="headerlink" href="#radarr" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Apri <strong>CasaOS</strong>.</li>
+<li>Vai su <strong>App Store</strong>.</li>
+<li>Cerca <strong>Radarr</strong>.</li>
+<li>Clicca sulla freccia ▼ accanto al pulsante <strong>Installa</strong>.</li>
+<li>Seleziona <strong>Installazione personalizzata</strong>.</li>
+<li>Nella sezione <strong>Rete</strong>, sostituisci <strong>bridge</strong> con <strong>vpn-network</strong>.</li>
+<li>Completa l'installazione.</li>
+</ol>
+<h3 id="sonarr">Sonarr<a class="headerlink" href="#sonarr" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Apri <strong>CasaOS</strong>.</li>
+<li>Vai su <strong>App Store</strong>.</li>
+<li>Cerca <strong>Sonarr</strong>.</li>
+<li>Clicca sulla freccia ▼ accanto al pulsante <strong>Installa</strong>.</li>
+<li>Seleziona <strong>Installazione personalizzata</strong>.</li>
+<li>Nella sezione <strong>Rete</strong>, sostituisci <strong>bridge</strong> con <strong>vpn-network</strong>.</li>
+<li>Nella sezione <strong>Volumes</strong>, aggiungi il seguente volume:</li>
+<li><strong>Host:</strong> <code>/DATA/Media/Anime</code></li>
+<li>
+<p><strong>Container:</strong> <code>/anime</code></p>
+</li>
+<li>
+<p>Completa l'installazione.</p>
+</li>
+</ol>
+<p>Per creare la cartella <code>/DATA/Media/Anime</code>, apri l'app <strong>Files</strong> di CasaOS e crea la directory all'interno della cartella <code>Media</code>. Mantenere una cartella dedicata agli anime permette di gestirli separatamente dalle altre serie TV, rendendo più semplice l'organizzazione della libreria e la configurazione di Sonarr.</p>
 <h2 id="collegamento-al-download-client-qbittorrent-via-gluetun">Collegamento al download client (qBittorrent via Gluetun)<a class="headerlink" href="#collegamento-al-download-client-qbittorrent-via-gluetun" title="Permanent link">&para;</a></h2>
 <p><code>Settings → Download Clients → Add → qBittorrent</code>:</p>
 <table>

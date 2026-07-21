@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://mattiap7.github.io/homelab/06-jellyfin/setup/">
       
       
-        <link rel="prev" href="../../05-stack-arr/qbittorrent/">
+        <link rel="prev" href="../../05-stack-arr/bazarr/">
       
       
-        <link rel="next" href="../temi-css/">
+        <link rel="next" href="../plugin/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Jellyfin — installazione e hardware acceleration - Homelab Media Server — Guida Completa</title>
+        <title>Jellyfin e Jellyseerr - Homelab Media Server — Guida Completa</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jellyfin-installazione-e-hardware-acceleration" class="md-skip">
+        <a href="#jellyfin-e-jellyseerr" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Jellyfin — installazione e hardware acceleration
+              Jellyfin e Jellyseerr
             
           </span>
         </div>
@@ -370,8 +370,6 @@
   
     
       
-      
-        
       
         
       
@@ -1320,8 +1318,6 @@
       
         
       
-        
-      
     
     
     
@@ -1475,33 +1471,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-stack-arr/qbittorrent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  qBittorrent sicuro
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1638,10 +1607,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installazione" class="md-nav__link">
+  <a href="#installare-jellyfin" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione
+        Installare Jellyfin
       </span>
     </span>
   </a>
@@ -1649,22 +1618,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-acceleration-quick-sync-intel" class="md-nav__link">
+  <a href="#abilitare-il-transcoding-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Hardware acceleration — Quick Sync (Intel)
+        Abilitare il transcoding hardware
       </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware acceleration — Quick Sync (Intel)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installare-jellyseerr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installare Jellyseerr
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collegare-jellyseerr-a-jellyfin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Collegare Jellyseerr a Jellyfin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collegare-radarr-e-sonarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Collegare Radarr e Sonarr
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collegare Radarr e Sonarr">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#verifica-sullhost" class="md-nav__link">
+  <a href="#recuperare-lapi-key" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Verifica sull'host
+        Recuperare l'API Key
       </span>
     </span>
   </a>
@@ -1672,21 +1674,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attivazione-nellinterfaccia-jellyfin" class="md-nav__link">
+  <a href="#configurare-un-server" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Attivazione nell'interfaccia Jellyfin
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verifica-che-funzioni-davvero" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Verifica che funzioni davvero
+        Configurare un server
       </span>
     </span>
   </a>
@@ -1699,21 +1690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struttura-librerie-consigliata" class="md-nav__link">
+  <a href="#come-funziona-lintero-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Struttura librerie consigliata
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#refresh-automatico-della-libreria" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Refresh automatico della libreria
+        Come funziona l'intero sistema
       </span>
     </span>
   </a>
@@ -1736,14 +1716,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../temi-css/" class="md-nav__link">
+      <a href="../plugin/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Temi e Custom CSS
+  Plugin utili
 
     
   </span>
@@ -1763,14 +1743,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugin/" class="md-nav__link">
+      <a href="../temi-css/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Plugin utili
+  Temi e Custom CSS
 
     
   </span>
@@ -1950,10 +1930,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installazione" class="md-nav__link">
+  <a href="#installare-jellyfin" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Installazione
+        Installare Jellyfin
       </span>
     </span>
   </a>
@@ -1961,22 +1941,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-acceleration-quick-sync-intel" class="md-nav__link">
+  <a href="#abilitare-il-transcoding-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Hardware acceleration — Quick Sync (Intel)
+        Abilitare il transcoding hardware
       </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware acceleration — Quick Sync (Intel)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installare-jellyseerr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installare Jellyseerr
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collegare-jellyseerr-a-jellyfin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Collegare Jellyseerr a Jellyfin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collegare-radarr-e-sonarr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Collegare Radarr e Sonarr
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collegare Radarr e Sonarr">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#verifica-sullhost" class="md-nav__link">
+  <a href="#recuperare-lapi-key" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Verifica sull'host
+        Recuperare l'API Key
       </span>
     </span>
   </a>
@@ -1984,21 +1997,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attivazione-nellinterfaccia-jellyfin" class="md-nav__link">
+  <a href="#configurare-un-server" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Attivazione nell'interfaccia Jellyfin
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verifica-che-funzioni-davvero" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Verifica che funzioni davvero
+        Configurare un server
       </span>
     </span>
   </a>
@@ -2011,21 +2013,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#struttura-librerie-consigliata" class="md-nav__link">
+  <a href="#come-funziona-lintero-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Struttura librerie consigliata
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#refresh-automatico-della-libreria" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Refresh automatico della libreria
+        Come funziona l'intero sistema
       </span>
     </span>
   </a>
@@ -2124,111 +2115,284 @@
   
 
 
-<h1 id="jellyfin-installazione-e-hardware-acceleration">Jellyfin — installazione e hardware acceleration<a class="headerlink" href="#jellyfin-installazione-e-hardware-acceleration" title="Permanent link">&para;</a></h1>
-<h2 id="installazione">Installazione<a class="headerlink" href="#installazione" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">jellyfin</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/jellyfin:latest</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jellyfin</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=${PUID}</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=${PGID}</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=${TZ}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./jellyfin/config:/config</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Media:/data/media</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/dri:/dev/dri</span><span class="w"> </span><span class="c1"># accesso a Quick Sync per il transcoding hardware</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8096:8096&quot;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost:8096/health&quot;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-</span></code></pre></div>
-<h2 id="hardware-acceleration-quick-sync-intel">Hardware acceleration — Quick Sync (Intel)<a class="headerlink" href="#hardware-acceleration-quick-sync-intel" title="Permanent link">&para;</a></h2>
-<p>Se hai una CPU Intel con grafica integrata (come l'N100 consigliato in questa guida), puoi scaricare il lavoro di transcoding dalla CPU alla GPU integrata, molto più efficiente.</p>
-<h3 id="verifica-sullhost">Verifica sull'host<a class="headerlink" href="#verifica-sullhost" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>/dev/dri
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Dovresti vedere renderD128 (e talvolta card0/card1)</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>intel-media-va-driver-non-free<span class="w"> </span>vainfo<span class="w"> </span>-y
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>vainfo
-</span></code></pre></div>
-<p>Output atteso: elenco dei profili supportati (H264, HEVC, VP9...) senza errori.</p>
-<h3 id="attivazione-nellinterfaccia-jellyfin">Attivazione nell'interfaccia Jellyfin<a class="headerlink" href="#attivazione-nellinterfaccia-jellyfin" title="Permanent link">&para;</a></h3>
-<p><code>Dashboard → Playback → Transcoding</code>:</p>
+<h1 id="jellyfin-e-jellyseerr">Jellyfin e Jellyseerr<a class="headerlink" href="#jellyfin-e-jellyseerr" title="Permanent link">&para;</a></h1>
+<p>In questa pagina vedremo come installare <strong>Jellyfin</strong> il nostro gestore dei media, installeremo anche <strong>Jellyseer</strong> per automatizzare le richieste senza interfacciarsi direttamente a radarr/sonarr.</p>
+<h2 id="installare-jellyfin">Installare Jellyfin<a class="headerlink" href="#installare-jellyfin" title="Permanent link">&para;</a></h2>
+<p>Jellyfin sarà il centro del tuo media server: organizzerà tutti i contenuti scaricati da Radarr e Sonarr e li renderà disponibili in streaming su PC, smartphone, Smart TV e qualsiasi altro dispositivo compatibile.</p>
+<p>L'installazione può essere eseguita direttamente dallo <strong>Store di CasaOS</strong>, senza utilizzare Docker Compose.</p>
 <ol>
-<li><strong>Hardware acceleration</strong>: <code>Intel QuickSync (QSV)</code> (o <code>VAAPI</code>)</li>
-<li>Attiva <code>Enable hardware decoding</code> per H264, HEVC, VP9, VC1</li>
-<li>Attiva <code>Enable hardware encoding</code></li>
-<li><strong>VAAPI Device</strong>: <code>/dev/dri/renderD128</code></li>
-<li>Salva e riavvia il container</li>
+<li>Apri <strong>CasaOS</strong>.</li>
+<li>Vai su <strong>App Store</strong>.</li>
+<li>Cerca <strong>Jellyfin</strong>.</li>
+<li>Clicca sulla freccia ▼ accanto al pulsante <strong>Installa</strong>.</li>
+<li>Seleziona <strong>Installazione personalizzata</strong>.</li>
+<li>Nella sezione <strong>Rete</strong>, sostituisci <strong>bridge</strong> con <strong>vpn-network</strong>.</li>
+<li>Verifica che il dispositivo <code>/dev/dri</code> sia esposto al container (necessario per il transcoding hardware).</li>
+<li>Completa l'installazione.</li>
 </ol>
-<h3 id="verifica-che-funzioni-davvero">Verifica che funzioni davvero<a class="headerlink" href="#verifica-che-funzioni-davvero" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>intel-gpu-tools<span class="w"> </span>-y
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>intel_gpu_top
-</span></code></pre></div>
-<p>Durante una riproduzione con transcoding forzato, se vedi attività sul motore <strong>"Video"</strong> (non "Render/3D"), l'accelerazione hardware è attiva correttamente.</p>
-<pre class="mermaid"><code>flowchart TD
-    A[Client richiede riproduzione] --&gt; B{Il formato è\ncompatibile nativamente?}
-    B --&gt;|Sì| C[Direct Play\nnessun transcoding, CPU/GPU a riposo]
-    B --&gt;|No| D{Quick Sync\nconfigurato?}
-    D --&gt;|Sì| E[Transcoding su GPU\nefficiente, basso consumo]
-    D --&gt;|No| F[Transcoding su CPU\npesante, sconsigliato su hardware limitato]</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Perché il transcoding a volte pesa comunque sulla CPU</p>
-</div>
-<p>Alcune operazioni di Jellyfin (es. la generazione delle miniature Trickplay per lo scrubbing) <strong>non usano</strong> l'accelerazione hardware, anche con Quick Sync configurato correttamente — passano sempre dalla CPU. Se noti CPU alta senza nessuno che guarda contenuti, verifica <code>Dashboard → Attività pianificate</code> prima di pensare a un problema di configurazione.</p>
-<h2 id="struttura-librerie-consigliata">Struttura librerie consigliata<a class="headerlink" href="#struttura-librerie-consigliata" title="Permanent link">&para;</a></h2>
-<p>Coerente con la struttura cartelle vista nella pagina Convenzioni:</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/jellyfin-dev.png"><img alt="Jellyfin device" src="../../img/jellyfin-dev.png" width="600" /></a>
+<br />
+<figcaption>Impostazioni jellyfin dei device</figcaption>
+</figure>
+<p>Al primo avvio verrà mostrata una procedura guidata nella quale dovrai:</p>
 <ul>
-<li><strong>Movies</strong> → tipo libreria "Film"</li>
-<li><strong>TV</strong> → tipo libreria "Serie TV"</li>
-<li><strong>Anime</strong> → tipo libreria "Serie TV" separata (permette scraper dedicati come AniDB)</li>
-<li><strong>Music</strong> → tipo libreria "Musica"</li>
+<li>creare l'utente amministratore;</li>
+<li>scegliere la lingua;</li>
+<li>configurare le librerie multimediali.</li>
 </ul>
-<h2 id="refresh-automatico-della-libreria">Refresh automatico della libreria<a class="headerlink" href="#refresh-automatico-della-libreria" title="Permanent link">&para;</a></h2>
-<p>Due meccanismi complementari:</p>
-<p><strong>1. Notifica diretta da Radarr/Sonarr (istantanea)</strong></p>
-<p>Su entrambi: <code>Settings → Connect → Add Connection → Emby/Jellyfin</code></p>
+<p>Per questa guida si consiglia di utilizzare la seguente struttura.</p>
 <table>
 <thead>
 <tr>
-<th>Campo</th>
-<th>Valore</th>
+<th>Cartella</th>
+<th>Tipo libreria</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Host</td>
-<td><code>jellyfin</code></td>
+<td><code>/DATA/Media/Movies</code></td>
+<td>Film</td>
 </tr>
 <tr>
-<td>Port</td>
-<td><code>8096</code></td>
+<td><code>/DATA/Media/TV</code></td>
+<td>Serie TV</td>
 </tr>
 <tr>
-<td>API Key</td>
-<td>generata da Jellyfin: <code>Dashboard → API Keys</code></td>
+<td><code>/DATA/Media/Anime</code></td>
+<td>Serie TV</td>
 </tr>
 <tr>
-<td>Notify on Import</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Update Library</td>
-<td>✅</td>
+<td><code>/DATA/Media/Music</code></td>
+<td>Musica</td>
 </tr>
 </tbody>
 </table>
-<p><strong>2. Monitoraggio in tempo reale (rete di sicurezza indipendente)</strong></p>
-<p><code>Dashboard → Librerie → [libreria] → Modifica → Abilita monitoraggio in tempo reale</code>: Jellyfin osserva direttamente il filesystem, indipendentemente dalle notifiche API.</p>
-<p><strong>3. Scan periodico di backup</strong></p>
-<p><code>Dashboard → Attività pianificate → Scansione libreria multimediale</code>: imposta una cadenza (es. ogni 6 ore) come ulteriore rete di sicurezza.</p>
-<p>Con Jellyfin installato e funzionante, puoi personalizzarne l'aspetto (tema e CSS) o aggiungere funzionalità extra (plugin) — coperti nelle prossime due pagine.</p>
+<p>Separare gli anime dalle normali serie TV permette di utilizzare in futuro scraper differenti (ad esempio AniDB) senza modificare la libreria principale.</p>
+<h2 id="abilitare-il-transcoding-hardware">Abilitare il transcoding hardware<a class="headerlink" href="#abilitare-il-transcoding-hardware" title="Permanent link">&para;</a></h2>
+<p>Se il tuo server utilizza una CPU Intel con grafica integrata (ad esempio Intel N100, N95, N305 o processori Intel Core recenti), puoi sfruttare <strong>Intel Quick Sync Video</strong>.</p>
+<p>In questo modo il transcoding verrà eseguito dalla GPU integrata invece che dalla CPU, riducendo il consumo di risorse e permettendo più riproduzioni contemporanee.</p>
+<p>Per prima cosa verifica che il dispositivo video sia disponibile:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>/dev/dri
+</span></code></pre></div>
+<p>Dovresti vedere almeno:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>renderD128
+</span></code></pre></div>
+<p>Successivamente installa gli strumenti di verifica:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>intel-media-va-driver-non-free<span class="w"> </span>vainfo<span class="w"> </span>-y
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>vainfo
+</span></code></pre></div>
+<p>Se <code>vainfo</code> mostra l'elenco dei codec supportati senza errori, Quick Sync è disponibile.</p>
+<p>Ora apri Jellyfin e vai in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Dashboard
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    → Playback
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        → Transcoding
+</span></code></pre></div>
+<p>Configura:</p>
+<ul>
+<li>Hardware acceleration: <strong>Intel Quick Sync (QSV)</strong> oppure <strong>VAAPI</strong></li>
+<li>Enable hardware decoding</li>
+<li>Enable hardware encoding</li>
+<li>VAAPI Device: <code>/dev/dri/renderD128</code></li>
+</ul>
+<p>Salva le modifiche e riavvia Jellyfin.</p>
+<p>Per verificare che il transcoding utilizzi realmente la GPU:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>intel-gpu-tools<span class="w"> </span>-y
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>intel_gpu_top
+</span></code></pre></div>
+<p>Durante una riproduzione che richiede transcoding dovresti vedere attività sul motore <strong>Video</strong>.</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/jellyfin-transcoding.png"><img alt="Transcoding jellyfin" src="../../img/jellyfin-transcoding.png" width="600" /></a>
+<br />
+<figcaption>Configurazione del transcoding hardware (nell'esempio viene utilizzato VAAPI perché il server monta una CPU AMD).</figcaption>
+</figure>
+<h2 id="installare-jellyseerr">Installare Jellyseerr<a class="headerlink" href="#installare-jellyseerr" title="Permanent link">&para;</a></h2>
+<p>Jellyseerr è il portale attraverso cui gli utenti richiederanno nuovi contenuti.</p>
+<p>L'utente non dovrà mai utilizzare direttamente Radarr o Sonarr: sarà sufficiente cercare un film o una serie TV su Jellyseerr e premere <strong>Request</strong>.</p>
+<p>Da quel momento sarà Jellyseerr a coordinare automaticamente tutto il resto del processo.</p>
+<p>Per installarlo:</p>
+<ol>
+<li>Apri <strong>CasaOS</strong>.</li>
+<li>Vai su <strong>App Store</strong>.</li>
+<li>Cerca <strong>Jellyseerr</strong>.</li>
+<li>Clicca sulla freccia ▼ accanto a <strong>Installa</strong>.</li>
+<li>Seleziona <strong>Installazione personalizzata</strong>.</li>
+<li>Imposta la rete <strong>vpn-network</strong>.</li>
+<li>Completa l'installazione.</li>
+</ol>
+<h2 id="collegare-jellyseerr-a-jellyfin">Collegare Jellyseerr a Jellyfin<a class="headerlink" href="#collegare-jellyseerr-a-jellyfin" title="Permanent link">&para;</a></h2>
+<p>Apri Jellyseerr e vai in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Settings
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    → Jellyfin
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        → Jellyfin Settings
+</span></code></pre></div>
+<p>Compila i campi richiesti:</p>
+<ul>
+<li><strong>Server URL</strong></li>
+<li><strong>Username</strong></li>
+<li><strong>Password</strong></li>
+</ul>
+<p>Ad esempio:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Server URL:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>http://jellyfin:8096
+</span></code></pre></div>
+<p>oppure</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>http://192.168.1.14:8096
+</span></code></pre></div>
+<p>Una volta salvata la configurazione, Jellyseerr importerà automaticamente:</p>
+<ul>
+<li>gli utenti;</li>
+<li>le librerie;</li>
+<li>i contenuti già presenti.</li>
+</ul>
+<p>Da questo momento gli utenti potranno autenticarsi utilizzando direttamente gli account di Jellyfin.</p>
+<h2 id="collegare-radarr-e-sonarr">Collegare Radarr e Sonarr<a class="headerlink" href="#collegare-radarr-e-sonarr" title="Permanent link">&para;</a></h2>
+<p>Dopo aver configurato Jellyfin, bisogna indicare a Jellyseerr quali istanze di Radarr e Sonarr dovrà utilizzare.</p>
+<p>Apri:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Settings
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    → Services
+</span></code></pre></div>
+<p>Una configurazione tipica è la seguente.</p>
+<table>
+<thead>
+<tr>
+<th>Servizio</th>
+<th>Qualità</th>
+<th>Contenuti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radarr</td>
+<td>1080p</td>
+<td>Film</td>
+</tr>
+<tr>
+<td>Radarr</td>
+<td>4K</td>
+<td>Film</td>
+</tr>
+<tr>
+<td>Sonarr</td>
+<td>1080p</td>
+<td>Serie TV</td>
+</tr>
+<tr>
+<td>Sonarr</td>
+<td>4K</td>
+<td>Serie TV</td>
+</tr>
+<tr>
+<td>Sonarr</td>
+<td>Anime</td>
+<td>Anime</td>
+</tr>
+</tbody>
+</table>
+<p>Ogni server rappresenta una diversa libreria o un diverso profilo di qualità.</p>
+<p>Ad esempio:</p>
+<ul>
+<li>Radarr 1080p gestirà i film Full HD;</li>
+<li>Radarr 4K gestirà i film Ultra HD;</li>
+<li>Sonarr 1080p gestirà le serie TV;</li>
+<li>Sonarr Anime gestirà esclusivamente gli anime.</li>
+</ul>
+<h3 id="recuperare-lapi-key">Recuperare l'API Key<a class="headerlink" href="#recuperare-lapi-key" title="Permanent link">&para;</a></h3>
+<p>Per aggiungere un server è necessario conoscere la sua API Key.</p>
+<p>Apri Radarr (oppure Sonarr) e vai in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Settings
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    → General
+</span></code></pre></div>
+<p>Scorri fino alla sezione <strong>Security</strong> e copia il valore presente nel campo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>API Key
+</span></code></pre></div>
+<p>Questa chiave dovrà essere inserita nella configurazione del server all'interno di Jellyseerr.</p>
+<h3 id="configurare-un-server">Configurare un server<a class="headerlink" href="#configurare-un-server" title="Permanent link">&para;</a></h3>
+<p>Per ogni server inserisci:</p>
+<ul>
+<li><strong>Name</strong></li>
+<li><strong>URL</strong></li>
+<li><strong>API Key</strong></li>
+<li><strong>Root Folder</strong></li>
+<li><strong>Quality Profile</strong></li>
+<li><strong>Language Profile</strong></li>
+</ul>
+<p>Ad esempio, per Radarr:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>URL:
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>http://radarr:7878
+</span></code></pre></div>
+<p>Per Sonarr:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>URL:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>http://sonarr:8989
+</span></code></pre></div>
+<p>Essendo tutti i container collegati alla rete Docker <code>vpn-network</code>, possono comunicare utilizzando direttamente il nome del container.</p>
+<p>Per le cartelle principali utilizza:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Root Folder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Film</td>
+<td><code>/movies</code></td>
+</tr>
+<tr>
+<td>Serie TV</td>
+<td><code>/tv</code></td>
+</tr>
+<tr>
+<td>Anime</td>
+<td><code>/anime</code></td>
+</tr>
+</tbody>
+</table>
+<p>Successivamente seleziona il <strong>Quality Profile</strong> e il <strong>Language Profile</strong> creati in precedenza in Radarr o Sonarr.</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/jellyseer-config-radarr.png"><img alt="Esempio di server 1080p radar" src="../../img/jellyseer-config-radarr.png" width="600" /></a>
+<br />
+<figcaption>Esempio di configurazione di un server Radarr.</figcaption>
+</figure>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/jellyseer-config-sonarr.png"><img alt="Esempio di server 1080p sonarr" src="../../img/jellyseer-config-sonarr.png" width="600" /></a>
+<br />
+<figcaption>Esempio di configurazione di un server Sonarr dedicato agli anime.</figcaption>
+</figure>
+<p>Ripeti la procedura per tutte le istanze di Radarr e Sonarr che desideri utilizzare.</p>
+<p>Se stai configurando un'istanza di Sonarr dedicata alle normali serie TV, lascia vuote le opzioni:</p>
+<ul>
+<li>Anime Series Type</li>
+<li>Anime Quality Profile</li>
+<li>Anime Root Folder</li>
+</ul>
+<p>Mantieni invece sempre abilitate le opzioni:</p>
+<ul>
+<li>Season Folders</li>
+<li>Enable Scan</li>
+<li>Enable Automatic Search</li>
+</ul>
+<h2 id="come-funziona-lintero-sistema">Come funziona l'intero sistema<a class="headerlink" href="#come-funziona-lintero-sistema" title="Permanent link">&para;</a></h2>
+<p>Una volta terminata la configurazione, tutto il processo diventa completamente automatico.</p>
+<pre class="mermaid"><code>flowchart TB
+    U[Utente&lt;br/&gt;Richiede un film o una serie]
+    J[Jellyseerr&lt;br/&gt;Portale richieste]
+    RS[Radarr / Sonarr&lt;br/&gt;Automazione download]
+    P[Prowlarr&lt;br/&gt;Gestione indexer]
+    Q[qBittorrent&lt;br/&gt;Download protetto VPN]
+    F[Jellyfin&lt;br/&gt;Streaming finale]
+
+    U --&gt; J
+    J --&gt; RS
+    RS --&gt; P
+    P --&gt; RS
+    RS --&gt; Q
+    Q --&gt; F</code></pre>
+<p>Quando un utente cerca un contenuto su Jellyseerr e preme <strong>Request</strong>, la richiesta viene inoltrata automaticamente all'istanza corretta di Radarr o Sonarr.</p>
+<p>Radarr o Sonarr interrogano Prowlarr per trovare le release disponibili sugli indexer configurati. Individuata quella migliore in base ai profili di qualità, la inviano a qBittorrent, che scarica il contenuto attraverso la VPN.</p>
+<p>Al termine del download, Radarr o Sonarr importano automaticamente il file nella libreria corretta, lo rinominano secondo le regole configurate e notificano Jellyfin, che aggiorna immediatamente la libreria.</p>
+<p>L'utente dovrà semplicemente attendere il completamento del download: il contenuto comparirà automaticamente in Jellyfin, pronto per essere riprodotto.</p>
 
 
 
@@ -2268,7 +2432,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../05-stack-arr/qbittorrent/" class="md-footer__link md-footer__link--prev" aria-label="Previous: qBittorrent sicuro">
+          <a href="../../05-stack-arr/bazarr/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bazarr">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -2278,20 +2442,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                qBittorrent sicuro
+                Bazarr
               </div>
             </div>
           </a>
         
         
           
-          <a href="../temi-css/" class="md-footer__link md-footer__link--next" aria-label="Next: Temi e Custom CSS">
+          <a href="../plugin/" class="md-footer__link md-footer__link--next" aria-label="Next: Plugin utili">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Temi e Custom CSS
+                Plugin utili
               </div>
             </div>
             <div class="md-footer__button md-icon">

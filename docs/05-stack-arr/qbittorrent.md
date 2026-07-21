@@ -28,33 +28,6 @@ flowchart TD
 
 Le categorie si configurano automaticamente quando colleghi qBittorrent come download client in Radarr/Sonarr (vedi pagina precedente) — non serve crearle manualmente in anticipo.
 
-## Impostare una password fissa (problema comune)
-
-Dalla versione 4.6+ delle immagini LinuxServer, qBittorrent genera una password temporanea casuale ad ogni avvio finché non ne imposti una tua esplicitamente.
-
-**Procedura corretta:**
-
-1. Trova la password temporanea:
-   ```bash
-   docker logs qbittorrent 2>&1 | grep -i "temporary password"
-   ```
-2. Accedi con `admin` + quella password
-3. **Subito**, prima di fare altro: `Strumenti → Opzioni → Web UI` → sezione **Autenticazione** → imposta username e password nuovi → **Salva**
-
-!!! danger "Errore comune — campo sbagliato"
-Non confondere il campo **"Indirizzo IP"** (in alto nella stessa pagina, che controlla su quale interfaccia di rete ascolta il servizio) con i campi di autenticazione (più in basso). Scrivere un URL tipo `http:192.168.1.14` nel campo Indirizzo IP causa un errore di bind che impedisce alla WebUI di avviarsi. Lascialo su `*` o vuoto.
-
-**Se la password continua a non fissarsi** anche dopo il salvataggio, il problema è quasi sempre permessi del volume di configurazione:
-
-```bash
-# Trova il path reale montato su /config
-docker inspect qbittorrent --format '{{ range .Mounts }}{{ println .Source .Destination }}{{ end }}'
-
-# Correggi la proprietà se non coincide con PUID/PGID
-sudo chown -R 1000:1000 /path/reale/qbittorrent
-docker restart qbittorrent
-```
-
 ## Impostazioni consigliate per uso con lo stack
 
 **Connection**: porta di ascolto coerente con quella esposta da Gluetun (es. `6881`), UPnP/NAT-PMP disattivato.

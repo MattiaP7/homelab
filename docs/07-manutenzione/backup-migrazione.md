@@ -24,6 +24,7 @@ Se perdi tutta la libreria media, puoi ri-scaricarla (fastidioso, non catastrofi
 ## Script di backup automatico
 
 ```bash
+sudo apt install pv # barra che mostra il tempo mancante
 mkdir -p ~/backups
 vim ~/backups/backup-homelab.sh
 ```
@@ -31,13 +32,28 @@ vim ~/backups/backup-homelab.sh
 ```bash
 #!/bin/bash
 DATE=$(date +%F)
-tar -czf ~/backups/homelab-config-$DATE.tar.gz \
-  /DATA/AppData/ \
-  ~/homelab/docker-compose.yml \
-  ~/homelab/.env 2>/dev/null
+BACKUP_DIR="$HOME/backups"
+BACKUP_FILE="$BACKUP_DIR/homelab-configs-$DATE.tar.gz"
 
-# Mantieni solo gli ultimi 14 backup
-find ~/backups/ -name "homelab-config-*.tar.gz" -mtime +14 -delete
+mkdir -p "$BACKUP_DIR"
+
+echo "Arresto i container in corso..."
+sudo docker stop $(sudo docker ps -a -q) >/dev/null 2>&1
+
+echo "Calcolo delle dimensioni del backup e avvio..."
+
+sudo tar -cf - \
+  /DATA/AppData/ \
+  /var/lib/casaos/ \
+  /etc/casaos/ \
+  ~/.docker/config.json 2>/dev/null | pv -s $(sudo du -sb /DATA/AppData/ /var/lib/casaos/ /etc/casaos/ ~/.docker/config.json 2>/dev/null | awk '{total += $1} END {print total}') | gzip > "$BACKUP_FILE"
+
+
+echo "Rispristino dei container docker..."
+sudo docker start $(sudo docker ps -a -q) >/dev/null 2>&1
+
+find "$BACKUP_DIR" -name "homelab-configs-*.tar.gz" -mtime +14 -delete
+echo "Backup completato con successo: $BACKUP_FILE"
 ```
 
 ```bash
@@ -47,7 +63,7 @@ crontab -e
 
 Aggiungi (backup ogni notte alle 3):
 
-```
+```c
 0 3 * * * /home/utente/backups/backup-homelab.sh
 ```
 

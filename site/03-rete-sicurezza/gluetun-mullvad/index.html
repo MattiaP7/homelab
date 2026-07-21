@@ -381,8 +381,6 @@
       
         
       
-        
-      
     
     
     
@@ -1176,38 +1174,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#passo-1-account-mullvad-e-chiavi-wireguard" class="md-nav__link">
+  <a href="#passo-1-creare-una-configurazione-wireguard-su-mullvad" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Passo 1 — Account Mullvad e chiavi WireGuard
+        Passo 1: Creare una configurazione WireGuard su Mullvad
       </span>
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-2-configurazione-gluetun" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Passo 2 — Configurazione Gluetun
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-3-qbittorrent-il-vero-kill-switch" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Passo 3 — qBittorrent, il vero kill switch
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Passo 3 — qBittorrent, il vero kill switch">
+    <nav class="md-nav" aria-label="Passo 1: Creare una configurazione WireGuard su Mullvad">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perche-non-installiamo-lapp-mullvad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Perché non installiamo l'app Mullvad?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copiare-il-file-sul-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Copiare il file sul server
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-2-configurazione-vpn-network-gluetun-qbittorrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Passo 2 — Configurazione vpn-network (Gluetun + QBittorrent)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 2 — Configurazione vpn-network (Gluetun + QBittorrent)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perche-creare-una-rete-docker-dedicata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Perché creare una rete Docker dedicata?
+      </span>
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#perche-funziona-come-kill-switch" class="md-nav__link">
@@ -1226,10 +1252,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#passo-4-impostazioni-di-sicurezza-extra-in-qbittorrent" class="md-nav__link">
+  <a href="#passo-3-mettere-in-sicurezza-qbittorrent" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Passo 4 — Impostazioni di sicurezza extra in qBittorrent
+        Passo 3 — Mettere in sicurezza qBittorrent
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 3 — Mettere in sicurezza qBittorrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cambiare-subito-la-password-della-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cambiare subito la password della WebUI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurare-linterfaccia-di-rete" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configurare l'interfaccia di rete
       </span>
     </span>
   </a>
@@ -1237,10 +1291,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#impostazioni-consigliate-su-mullvad" class="md-nav__link">
+  <a href="#disabilitare-upnp" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Impostazioni consigliate su Mullvad
+        Disabilitare UPnP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aumentare-la-privacy-del-protocollo-bittorrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aumentare la privacy del protocollo BitTorrent
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificare-la-configurazione-della-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificare la configurazione della WebUI
       </span>
     </span>
   </a>
@@ -1453,8 +1529,6 @@
       
         
       
-        
-      
     
     
     
@@ -1608,33 +1682,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-stack-arr/qbittorrent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  qBittorrent sicuro
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1736,14 +1783,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
+      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Temi e Custom CSS
+  Plugin utili
 
     
   </span>
@@ -1763,14 +1810,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-jellyfin/plugin/" class="md-nav__link">
+      <a href="../../06-jellyfin/temi-css/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-  Plugin utili
+  Temi e Custom CSS
 
     
   </span>
@@ -1961,38 +2008,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#passo-1-account-mullvad-e-chiavi-wireguard" class="md-nav__link">
+  <a href="#passo-1-creare-una-configurazione-wireguard-su-mullvad" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Passo 1 — Account Mullvad e chiavi WireGuard
+        Passo 1: Creare una configurazione WireGuard su Mullvad
       </span>
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-2-configurazione-gluetun" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Passo 2 — Configurazione Gluetun
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-3-qbittorrent-il-vero-kill-switch" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Passo 3 — qBittorrent, il vero kill switch
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Passo 3 — qBittorrent, il vero kill switch">
+    <nav class="md-nav" aria-label="Passo 1: Creare una configurazione WireGuard su Mullvad">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perche-non-installiamo-lapp-mullvad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Perché non installiamo l'app Mullvad?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copiare-il-file-sul-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Copiare il file sul server
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-2-configurazione-vpn-network-gluetun-qbittorrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Passo 2 — Configurazione vpn-network (Gluetun + QBittorrent)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 2 — Configurazione vpn-network (Gluetun + QBittorrent)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perche-creare-una-rete-docker-dedicata" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Perché creare una rete Docker dedicata?
+      </span>
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#perche-funziona-come-kill-switch" class="md-nav__link">
@@ -2011,10 +2086,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#passo-4-impostazioni-di-sicurezza-extra-in-qbittorrent" class="md-nav__link">
+  <a href="#passo-3-mettere-in-sicurezza-qbittorrent" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Passo 4 — Impostazioni di sicurezza extra in qBittorrent
+        Passo 3 — Mettere in sicurezza qBittorrent
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo 3 — Mettere in sicurezza qBittorrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cambiare-subito-la-password-della-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cambiare subito la password della WebUI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurare-linterfaccia-di-rete" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configurare l'interfaccia di rete
       </span>
     </span>
   </a>
@@ -2022,10 +2125,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#impostazioni-consigliate-su-mullvad" class="md-nav__link">
+  <a href="#disabilitare-upnp" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Impostazioni consigliate su Mullvad
+        Disabilitare UPnP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aumentare-la-privacy-del-protocollo-bittorrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aumentare la privacy del protocollo BitTorrent
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificare-la-configurazione-della-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Verificare la configurazione della WebUI
       </span>
     </span>
   </a>
@@ -2131,63 +2256,159 @@
 <h1 id="vpn-gluetun-mullvad">VPN — Gluetun + Mullvad<a class="headerlink" href="#vpn-gluetun-mullvad" title="Permanent link">&para;</a></h1>
 <p>Questa è la sezione più importante per la sicurezza del tuo download. Se hai letto la pagina "Come funziona un torrent", sai già perché serve: il tuo IP reale sarebbe altrimenti visibile a chiunque nello swarm.</p>
 <h2 id="il-concetto-gluetun-non-e-unapp-e-un-container">Il concetto — Gluetun non è un'app, è un container<a class="headerlink" href="#il-concetto-gluetun-non-e-unapp-e-un-container" title="Permanent link">&para;</a></h2>
-<p><strong>Mullvad</strong> è il servizio VPN (a pagamento, ~5€/mese) a cui ti connetti. <strong>Gluetun</strong> è il client WireGuard containerizzato che gestisce quella connessione dentro Docker — non serve installare nessuna app VPN separata, né su Windows, né sul sistema operativo del server: Gluetun <strong>è</strong> il client.</p>
+<p><strong><a href="https://mullvad.net/it">Mullvad</a></strong> è il servizio VPN (a pagamento, ~5€/mese) a cui ti connetti. <strong>Gluetun</strong> è il client WireGuard containerizzato che gestisce quella connessione dentro Docker — non serve installare nessuna app VPN separata, né su Windows, né sul sistema operativo del server: Gluetun <strong>è</strong> il client.</p>
 <pre class="mermaid"><code>flowchart LR
 
-    subgraph Server["Server Homelab"]
-        Q[qBittorrent]
-        G[Gluetun]
-
-        Q -. "network_mode: service:gluetun" .-&gt; G
-    end
-
-    G --&gt;|Tunnel WireGuard cifrato| M[Server Mullvad]
-    M --&gt; Internet</code></pre>
-<h2 id="passo-1-account-mullvad-e-chiavi-wireguard">Passo 1 — Account Mullvad e chiavi WireGuard<a class="headerlink" href="#passo-1-account-mullvad-e-chiavi-wireguard" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Vai su <strong>mullvad.net</strong> → crea account (ti dà solo un numero a 16 cifre, nessuna email richiesta)</li>
-<li><strong>Salva subito il numero account</strong> — è l'unico modo di accedere, non recuperabile se perso</li>
-<li>Aggiungi credito (5€/mese)</li>
-<li>Nel pannello account → <strong>Configurazione WireGuard</strong> → <strong>Genera chiave</strong></li>
-<li>Copia la <strong>chiave privata</strong> mostrata</li>
-<li>Seleziona il tab <strong>Linux</strong> → trovi anche l'<strong>Address</strong> (es. <code>10.64.xxx.xxx/32</code>)</li>
-</ol>
+    qBittorrent --&gt; Gluetun
+    Gluetun --&gt; Mullvad
+    Mullvad --&gt; Internet</code></pre>
+<p>qBittorrent <strong>non comunica mai direttamente con Internet</strong>, tutto il traffico passa prima attraverso Gluetun, che crea un tunnel WireGuard verso i server Mullvad.</p>
+<h2 id="passo-1-creare-una-configurazione-wireguard-su-mullvad">Passo 1: Creare una configurazione WireGuard su Mullvad<a class="headerlink" href="#passo-1-creare-una-configurazione-wireguard-su-mullvad" title="Permanent link">&para;</a></h2>
+<p>Per utilizzare Mullvad con Gluetun è necessario generare una configurazione WireGuard dal sito ufficiale di Mullvad. Se non hai ancora un account, puoi crearne uno direttamente su <strong><a href="https://mullvad.net/it">Mullvad</a></strong>: a differenza di molti altri servizi VPN, Mullvad non richiede un indirizzo email né una password. Al termine della registrazione ti verrà assegnato un <strong>numero account di 16 cifre</strong>, che rappresenta l'unico metodo per accedere al tuo account.</p>
 <div class="admonition danger">
-<p class="admonition-title">La chiave privata si vede una sola volta</p>
+<p class="admonition-title">Conserva il numero account</p>
 </div>
-<p>Copiala e salvala subito in un posto sicuro. Se la perdi, dovrai generarne una nuova.</p>
-<h2 id="passo-2-configurazione-gluetun">Passo 2 — Configurazione Gluetun<a class="headerlink" href="#passo-2-configurazione-gluetun" title="Permanent link">&para;</a></h2>
-<p>Nel tuo <code>docker-compose.yml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">gluetun</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qmcgaw/gluetun:latest</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gluetun</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">cap_add</span><span class="p">:</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NET_ADMIN</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/net/tun:/dev/net/tun</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span><span class="w"> </span><span class="c1"># WebUI qBittorrent</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6881:6881&quot;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6881:6881/udp&quot;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPN_SERVICE_PROVIDER=mullvad</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPN_TYPE=wireguard</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WIREGUARD_PRIVATE_KEY=LA_TUA_CHIAVE_PRIVATA</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WIREGUARD_ADDRESSES=IL_TUO_INDIRIZZO/32</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER_COUNTRIES=Netherlands</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIREWALL=on</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Rome</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gluetun:/gluetun</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;wget&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-qO-&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;https://ipinfo.io/ip&quot;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60s</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<p>Il numero account è l'unica credenziale necessaria per accedere a Mullvad. Se lo perdi e non ne hai una copia, non sarà possibile recuperarlo.</p>
+<p>Dopo aver aggiunto credito al tuo account (attualmente il costo è di <strong>5 € al mese</strong>), entra nel pannello di controllo e apri la sezione dedicata alla configurazione <strong>WireGuard</strong> e genera una chiave.</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/mullvad.png"><img alt="Creazione chiave mullvad" src="../../img/mullvad.png" width="600" /></a>
+<br />
+<figcaption>Creazione della configurazione WireGuard</figcaption>
+</figure>
+<p>Dopo di che sarà possibile scaricare il file di configurazione</p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/mullvad-2.png"><img alt="Creazione del file .conf" src="../../img/mullvad-2.png" width="600" /></a>
+<br />
+<figcaption>Creazione del file .conf</figcaption>
+</figure>
+<p>Da questa pagina puoi scegliere il paese, il server e generare una nuova configurazione WireGuard. Al termine verrà scaricato un file con un nome simile a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nl-ams-wg-001.conf
 </span></code></pre></div>
+<p>È importante capire cosa rappresenta questo file.</p>
+<p>Non si tratta di un programma da installare sul server, né di un client VPN: è semplicemente un <strong>file di configurazione</strong> contenente tutte le informazioni necessarie per stabilire un tunnel WireGuard.</p>
+<p>Un file <code>.conf</code> generato da Mullvad è simile al seguente:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[Interface]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Device: Nome device (associato alla chiave precedentemente generato)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.xxx.xxx.xxx/32,fc00:bbbb:bbbb:bb01::x:xxxx/128</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DNS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">[Peer]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="na">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ip:porta</span>
+</span></code></pre></div>
+<p>Le informazioni che interessano per questa guida sono principalmente:</p>
+<ul>
+<li><strong>PrivateKey</strong> → la chiave privata WireGuard;</li>
+<li><strong>Address</strong> → l'indirizzo IP assegnato da Mullvad.</li>
+</ul>
+<p>Questi valori verranno successivamente utilizzati nella configurazione di Gluetun.</p>
+<h3 id="perche-non-installiamo-lapp-mullvad">Perché non installiamo l'app Mullvad?<a class="headerlink" href="#perche-non-installiamo-lapp-mullvad" title="Permanent link">&para;</a></h3>
+<p>Potrebbe sembrare naturale installare il client ufficiale Mullvad sul server Linux, ma nel nostro caso <strong>non è necessario</strong>.</p>
+<p>Il server utilizzerà infatti <strong>Gluetun</strong>, un container Docker che implementa direttamente il protocollo WireGuard e si occupa autonomamente di instaurare la connessione VPN.</p>
+<p>In pratica:</p>
+<ul>
+<li><strong>Gluetun è il client WireGuard</strong>;</li>
+<li><strong>non serve installare l'app Mullvad sul server</strong>;</li>
+<li><strong>non serve importare il file <code>.conf</code> nel sistema operativo</strong>.</li>
+</ul>
+<p>Le varie opzioni presenti nella pagina di generazione della configurazione (ad esempio Kill Switch, Multihop o altre impostazioni disponibili) sono pensate per chi utilizza il file <code>.conf</code> con un client WireGuard tradizionale, come l'app ufficiale WireGuard o il client Mullvad.</p>
+<p>Nel nostro setup queste opzioni vengono ignorate.</p>
+<p>La protezione del traffico viene infatti gestita direttamente da Gluetun tramite:</p>
+<ul>
+<li>il firewall interno (<code>FIREWALL=on</code>);</li>
+<li>la condivisione dello stack di rete con qBittorrent (<code>network_mode: service:gluetun</code>).</li>
+</ul>
+<p>Questo significa che qBittorrent non dispone di una propria connessione verso Internet: tutto il traffico passa obbligatoriamente attraverso Gluetun. Se la VPN dovesse interrompersi, il firewall interno di Gluetun bloccherà automaticamente qualsiasi comunicazione verso l'esterno, impedendo che il client BitTorrent utilizzi accidentalmente la connessione normale.</p>
+<p>In altre parole, il <strong>kill switch che protegge realmente il server è quello di Gluetun</strong>, non quello eventualmente configurabile nella pagina di generazione del file WireGuard.</p>
+<h3 id="copiare-il-file-sul-server">Copiare il file sul server<a class="headerlink" href="#copiare-il-file-sul-server" title="Permanent link">&para;</a></h3>
+<p>Una volta scaricato il file <code>.conf</code>, è consigliabile copiarlo sul server, così da poter consultare facilmente i valori che contiene durante la configurazione di Gluetun.</p>
+<p>Da un computer Linux, macOS oppure da PowerShell su Windows (con OpenSSH installato), puoi utilizzare il comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>nl-ams-wg-001.conf<span class="w"> </span>username@ip_del_server:/home/username/
+</span></code></pre></div>
+<p>dove:</p>
+<ul>
+<li><code>nl-ams-wg-001.conf</code> è il file appena scaricato;</li>
+<li><code>username</code> è l'utente del server;</li>
+<li><code>ip_del_server</code> è l'indirizzo IP del server;</li>
+<li><code>/home/username/</code> è la cartella di destinazione sul server.</li>
+</ul>
+<p><code>scp</code> (<strong>Secure Copy</strong>) utilizza il protocollo SSH per trasferire file in modo cifrato da un computer a un altro. Se hai già configurato l'accesso SSH al server, il trasferimento richiederà semplicemente la password (oppure utilizzerà automaticamente la tua chiave SSH).</p>
+<p>Una volta copiato il file, puoi visualizzarne il contenuto direttamente sul server:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cat<span class="w"> </span>~/nl-ams-wg-001.conf
+</span></code></pre></div>
+<p>oppure aprirlo con un editor di testo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vim<span class="w"> </span>~/nl-ams-wg-001.conf
+</span></code></pre></div>
+<h2 id="passo-2-configurazione-vpn-network-gluetun-qbittorrent">Passo 2 — Configurazione vpn-network (Gluetun + QBittorrent)<a class="headerlink" href="#passo-2-configurazione-vpn-network-gluetun-qbittorrent" title="Permanent link">&para;</a></h2>
+<p>Adesso creiamo il container che conterra sia Gluetun che QBittorrent il client torrent, in più verrà creata una rete docker <code>vpn-network</code> questo ci faciliterà anche la comunicazioni tra i vari container.</p>
+<p>Dopo aver fatto l'accesso a Portainer:</p>
+<ol>
+<li>Seleziona l'ambiente <strong>Local</strong> (o quello corrispondente al tuo server).</li>
+<li>Nel menu laterale apri <strong>Stacks</strong>.</li>
+<li>Clicca su <strong>Add stack</strong>.</li>
+<li>Assegna un nome allo stack, ad esempio <code>homelab-vpn</code>.</li>
+<li>Incolla il contenuto del tuo file <code>docker-compose.yml</code> nel web editor.</li>
+</ol>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">gluetun</span><span class="p">:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qmcgaw/gluetun:latest</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gluetun</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">cap_add</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NET_ADMIN</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/net/tun:/dev/net/tun</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8181:8080&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6881:6881&quot;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6881:6881/udp&quot;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPN_SERVICE_PROVIDER=mullvad</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPN_TYPE=wireguard</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WIREGUARD_PRIVATE_KEY=...</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WIREGUARD_ADDRESSES=.../32</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER_COUNTRIES=Netherlands</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIREWALL=on</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24</span><span class="w"> </span><span class="c1"># vostra subnet</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Rome</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/AppData/gluetun:/gluetun</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;wget&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-qO-&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;https://ipinfo.io/ip&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60s</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">    </span><span class="c1"># utilizzo il network creato</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vpn-network</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">  </span><span class="nt">qbittorrent</span><span class="p">:</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/qbittorrent:latest</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qbittorrent</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;service:gluetun&quot;</span><span class="w"> </span><span class="c1"># sicurezza di gluetun</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="w">      </span><span class="nt">gluetun</span><span class="p">:</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=1000</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Rome</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WEBUI_PORT=8080</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/AppData/qbittorrent:/config</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Downloads:/downloads</span>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="c1"># creazione del network dedicato</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="w">  </span><span class="nt">vpn-network</span><span class="p">:</span>
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<p>Premi <strong>Deploy the stack</strong>, Portainer creerà automaticamente tutti i container, le reti e i volumi definiti nel file Compose.</p>
 <table>
 <thead>
 <tr>
@@ -2210,60 +2431,130 @@
 </tr>
 </tbody>
 </table>
-<h2 id="passo-3-qbittorrent-il-vero-kill-switch">Passo 3 — qBittorrent, il vero kill switch<a class="headerlink" href="#passo-3-qbittorrent-il-vero-kill-switch" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">qbittorrent</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/qbittorrent:latest</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qbittorrent</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;service:gluetun&quot;</span><span class="w"> </span><span class="c1"># &lt;-- il cuore della sicurezza</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">depends_on</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">gluetun</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=1000</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Rome</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WEBUI_PORT=8080</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./qbittorrent:/config</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/DATA/Downloads:/downloads</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="c1"># NESSUNA sezione &quot;ports:&quot; qui — le porte sono su Gluetun</span>
-</span></code></pre></div>
+<h3 id="perche-creare-una-rete-docker-dedicata">Perché creare una rete Docker dedicata?<a class="headerlink" href="#perche-creare-una-rete-docker-dedicata" title="Permanent link">&para;</a></h3>
+<p>Quando Docker crea un container senza particolari configurazioni, lo collega alla rete <code>bridge</code> predefinita. Sebbene funzioni, utilizzare una <strong>rete dedicata</strong> per i servizi dell'homelab offre diversi vantaggi.</p>
+<p>Creando una rete, ad esempio <code>vpn-network</code>, tutti i container dello stack potranno comunicare direttamente tra loro utilizzando il <strong>nome del container</strong> invece dell'indirizzo IP.</p>
+<p>Ad esempio:</p>
+<ul>
+<li>Radarr potrà raggiungere qBittorrent usando <code>qbittorrent:8080</code>;</li>
+<li>Sonarr potrà collegarsi a Prowlarr usando <code>prowlarr:9696</code>;</li>
+<li>Jellyfin potrà comunicare con gli altri servizi senza conoscere i loro indirizzi IP.</li>
+</ul>
+<p>Questo rende la configurazione più semplice e molto più robusta: se un container cambia indirizzo IP (evento normale in Docker), gli altri continueranno comunque a raggiungerlo tramite il suo nome.</p>
+<p>Un altro vantaggio è l'isolamento. I container appartenenti alla stessa rete possono comunicare tra loro, mentre quelli esterni non possono accedere direttamente ai servizi interni, a meno che non vengano pubblicate esplicitamente delle porte.</p>
+<p>In questa guida tutti i servizi dell'ecosistema multimediale utilizzeranno la stessa rete Docker dedicata, così da poter comunicare in modo semplice, sicuro e indipendente dagli indirizzi IP assegnati da Docker.</p>
 <h3 id="perche-funziona-come-kill-switch">Perché funziona come kill switch<a class="headerlink" href="#perche-funziona-come-kill-switch" title="Permanent link">&para;</a></h3>
 <p><code>network_mode: service:gluetun</code> non crea una rete propria per qBittorrent — condivide letteralmente lo stack di rete di Gluetun. Non è un firewall che blocca il traffico non-VPN: è l'<strong>assenza strutturale</strong> di un percorso di rete alternativo. Se Gluetun perde il tunnel, qBittorrent non ha semplicemente nessun'altra via per uscire su Internet.</p>
 <pre class="mermaid"><code>flowchart TD
     A{Il tunnel Gluetun\nè attivo?} --&gt;|Sì| B[qBittorrent scarica/carica\nnormalmente]
     A --&gt;|No| C[qBittorrent non ha\nnessuna rete disponibile]
     C --&gt; D[Download bloccato\nNESSUN leak possibile]</code></pre>
-<h2 id="passo-4-impostazioni-di-sicurezza-extra-in-qbittorrent">Passo 4 — Impostazioni di sicurezza extra in qBittorrent<a class="headerlink" href="#passo-4-impostazioni-di-sicurezza-extra-in-qbittorrent" title="Permanent link">&para;</a></h2>
-<p>Nel WebUI (<code>http://&lt;IP_server&gt;:8080</code>), <code>Strumenti → Opzioni</code>:</p>
-<p><strong>Advanced</strong></p>
+<h2 id="passo-3-mettere-in-sicurezza-qbittorrent">Passo 3 — Mettere in sicurezza qBittorrent<a class="headerlink" href="#passo-3-mettere-in-sicurezza-qbittorrent" title="Permanent link">&para;</a></h2>
+<p>Prima di utilizzare qBittorrent è consigliabile modificare alcune impostazioni che migliorano la sicurezza e riducono il rischio di esporre il traffico o l'interfaccia di amministrazione.</p>
+<h3 id="cambiare-subito-la-password-della-webui">Cambiare subito la password della WebUI<a class="headerlink" href="#cambiare-subito-la-password-della-webui" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">Modifica immediatamente la password</p>
+</div>
+<p>Dalla versione <strong>4.6</strong> delle immagini LinuxServer, qBittorrent non utilizza più una password di default. Al primo avvio viene generata una <strong>password temporanea casuale</strong>, che rimane valida finché non ne imposti una personale.</p>
+<p>Per recuperare la password temporanea esegui:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>qbittorrent<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;temporary password&quot;</span>
+</span></code></pre></div>
+<p>L'output sarà simile a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>The WebUI administrator username is: admin
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>The WebUI administrator password was not set. A temporary password is provided for this session: xxxxxxxxx
+</span></code></pre></div>
+<p>Accedi quindi alla WebUI all'indirizzo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>http://&lt;IP_DEL_SERVER&gt;:8080
+</span></code></pre></div>
+<p>utilizzando:</p>
 <ul>
-<li><strong>Network Interface</strong>: seleziona <code>tun0</code> — secondo livello di protezione indipendente da Gluetun</li>
+<li><strong>Username:</strong> <code>admin</code></li>
+<li><strong>Password:</strong> quella mostrata nei log.</li>
 </ul>
-<p><strong>Connection</strong></p>
+<p>Una volta effettuato l'accesso, cambia immediatamente le credenziali andando in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Strumenti → Opzioni → Web UI → Autenticazione
+</span></code></pre></div>
+<p>Imposta un nuovo username e una password robusta, quindi salva le modifiche.</p>
+<p>Se dopo il riavvio del container la password continua a tornare quella temporanea, il problema è quasi sempre dovuto ai permessi della cartella di configurazione.</p>
+<p>Per verificare dove è montato <code>/config</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span>qbittorrent<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;{{ range .Mounts }}{{ println .Source .Destination }}{{ end }}&#39;</span>
+</span></code></pre></div>
+<p>Se necessario correggi i permessi:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="m">1000</span>:1000<span class="w"> </span>/percorso/reale/qbittorrent
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span>restart<span class="w"> </span>qbittorrent
+</span></code></pre></div>
+<hr />
+<h2 id="configurare-linterfaccia-di-rete">Configurare l'interfaccia di rete<a class="headerlink" href="#configurare-linterfaccia-di-rete" title="Permanent link">&para;</a></h2>
+<p>Apri:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Strumenti → Opzioni → Avanzate
+</span></code></pre></div>
+<p>Alla voce <strong>Network Interface</strong> seleziona:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>tun0
+</span></code></pre></div>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/qbit_net_int.png"><img alt="Cambio interfaccia di rete" src="../../img/qbit_net_int.png" width="600" /></a>
+<br />
+<figcaption>Selezione dell'interfaccia <code>tun0</code></figcaption>
+</figure>
+<p>Questa impostazione rappresenta un <strong>secondo livello di protezione</strong>.</p>
+<p>Anche se qBittorrent utilizza già la rete di Gluetun grazie a <code>network_mode: service:gluetun</code>, vincolare il client all'interfaccia <code>tun0</code> impedisce al traffico di utilizzare accidentalmente altre interfacce di rete qualora fossero disponibili.</p>
+<hr />
+<h2 id="disabilitare-upnp">Disabilitare UPnP<a class="headerlink" href="#disabilitare-upnp" title="Permanent link">&para;</a></h2>
+<p>Vai in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Strumenti → Opzioni → Connessione
+</span></code></pre></div>
+<p>e disattiva:</p>
 <ul>
-<li>Disattiva UPnP/NAT-PMP (non funziona dentro un tunnel gestito da un altro container)</li>
+<li><strong>UPnP / NAT-PMP</strong></li>
 </ul>
-<p><strong>BitTorrent</strong></p>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/qbit_upnp.png"><img alt="Disabilitare UpNp" src="../../img/qbit_upnp.png" width="600" /></a>
+<br />
+<figcaption>Disabilitare UpNp</figcaption>
+</figure>
+<p>Quando qBittorrent è dietro Gluetun, queste tecnologie non sono necessarie e non possono aprire automaticamente porte sul router.</p>
+<hr />
+<h2 id="aumentare-la-privacy-del-protocollo-bittorrent">Aumentare la privacy del protocollo BitTorrent<a class="headerlink" href="#aumentare-la-privacy-del-protocollo-bittorrent" title="Permanent link">&para;</a></h2>
+<p>Apri:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Strumenti → Opzioni → BitTorrent
+</span></code></pre></div>
+<p>Imposta:</p>
 <ul>
-<li>Crittografia: <strong>Richiedi crittografia</strong></li>
-<li><strong>Anonymous Mode</strong>: attivo se disponibile</li>
+<li><strong>Modalità crittografia:</strong> <strong>Richiedi crittografia</strong></li>
+<li><strong>Anonymous Mode:</strong> abilitata (se disponibile)</li>
 </ul>
-<p><strong>Web UI</strong></p>
-<ul>
-<li>Cambia subito username e password di default (mai lasciare quelli standard)</li>
-</ul>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/qbit_encr.png"><img alt="Impostazioni di privacy" src="../../img/qbit_encr.png" width="600" /></a>
+<br />
+<figcaption>Impostazioni consigliate per la privacy</figcaption>
+</figure>
+<p>Queste impostazioni aumentano la privacy delle connessioni BitTorrent e riducono la possibilità di connessioni non cifrate.</p>
+<hr />
+<h2 id="verificare-la-configurazione-della-webui">Verificare la configurazione della WebUI<a class="headerlink" href="#verificare-la-configurazione-della-webui" title="Permanent link">&para;</a></h2>
+<p>Dopo aver modificato username e password, controlla anche il resto della configurazione della WebUI:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Strumenti → Opzioni → Web UI
+</span></code></pre></div>
+<figure>
+  <a class="glightbox" data-type="image" href="../../img/qbit_webui.png"><img alt="Impostazioni WEBUI" src="../../img/qbit_webui.png" width="600" /></a>
+<br />
+<figcaption>Configurazione della WebUI</figcaption>
+</figure>
 <div class="admonition warning">
 <p class="admonition-title">Errore comune</p>
 </div>
-<p>Nel campo <strong>Indirizzo IP</strong> della sezione Web UI, NON scrivere mai un URL con <code>http:</code> davanti — quel campo vuole solo l'IP puro o <code>*</code> (tutte le interfacce). Scrivere <code>http:192.168.1.14</code> causa un errore di bind che impedisce alla WebUI di partire.</p>
-<h2 id="impostazioni-consigliate-su-mullvad">Impostazioni consigliate su Mullvad<a class="headerlink" href="#impostazioni-consigliate-su-mullvad" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Paese server</strong>: scegli uno con buone leggi sulla privacy e buona velocità dall'Italia (Paesi Bassi, Svezia, Svizzera sono scelte comuni)</li>
-<li>Verifica sul sito Mullvad quali server sono esplicitamente P2P-friendly per prestazioni torrent migliori</li>
-</ul>
-<p>Con Gluetun e qBittorrent configurati, il passo successivo obbligatorio è <strong>verificare</strong> che tutto funzioni davvero — non dare mai per scontato che una configurazione VPN sia corretta senza testarla.</p>
+<p>Nel campo <strong>Indirizzo IP</strong> della WebUI <strong>non inserire mai un URL</strong>.</p>
+<div class="language-text highlight"><pre><span></span><code>Sono validi valori come:
+
+- `*`
+- `0.0.0.0`
+- `192.168.1.14`
+
+Non sono invece validi valori come:
+
+- `http://192.168.1.14`
+- `https://192.168.1.14`
+</code></pre></div>
+<p>Inserendo <code>http://</code> o <code>https://</code>, qBittorrent non riuscirà ad avviare correttamente la WebUI perché tenterà di eseguire il bind su un indirizzo non valido.</p>
 
 
 

@@ -16,24 +16,7 @@ Via SSH sul server:
 curl -fsSL https://get.casaos.io | sudo bash
 ```
 
-Perché questo comando?
-
-- `curl -fsSL https://get.casaos.io` scarica lo script di installazione in modo silenzioso e sicuro.
-- `sudo bash` esegue lo script con privilegi di amministratore, necessari per installare Docker e creare i servizi di CasaOS.
-
-Lo script:
-
-1. Verifica i requisiti di sistema
-2. Installa Docker (se non presente)
-3. Installa e avvia CasaOS
-4. Ti mostra l'indirizzo per accedere al termine
-
-!!! tip "Sicurezza prima di tutto"
-È sempre una buona abitudine dare un'occhiata a cosa fa uno script prima di eseguirlo con `sudo`. Puoi farlo con:
-
-```bash
-curl -fsSL https://get.casaos.io | less
-```
+Questo comando lancia la installazione di casaos
 
 ## Primo accesso
 
